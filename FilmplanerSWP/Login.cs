@@ -16,5 +16,20 @@ namespace FilmplanerSWP
         {
             InitializeComponent();
         }
+
+        private void btn_regis_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tB_login_password_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pB_Login_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

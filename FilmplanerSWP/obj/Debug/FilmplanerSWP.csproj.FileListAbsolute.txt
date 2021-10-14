@@ -1,9 +1,10 @@
 C:\Users\lukas.hauser\Source\Repos\Filmplaner\FilmplanerSWP\bin\Debug\FilmplanerSWP.exe.config
 C:\Users\lukas.hauser\Source\Repos\Filmplaner\FilmplanerSWP\bin\Debug\FilmplanerSWP.exe
 C:\Users\lukas.hauser\Source\Repos\Filmplaner\FilmplanerSWP\bin\Debug\FilmplanerSWP.pdb
-C:\Users\lukas.hauser\Source\Repos\Filmplaner\FilmplanerSWP\obj\Debug\FilmplanerSWP.Form1.resources
 C:\Users\lukas.hauser\Source\Repos\Filmplaner\FilmplanerSWP\obj\Debug\FilmplanerSWP.Properties.Resources.resources
 C:\Users\lukas.hauser\Source\Repos\Filmplaner\FilmplanerSWP\obj\Debug\FilmplanerSWP.csproj.GenerateResource.cache
 C:\Users\lukas.hauser\Source\Repos\Filmplaner\FilmplanerSWP\obj\Debug\FilmplanerSWP.csproj.CoreCompileInputs.cache
 C:\Users\lukas.hauser\Source\Repos\Filmplaner\FilmplanerSWP\obj\Debug\FilmplanerSWP.exe
 C:\Users\lukas.hauser\Source\Repos\Filmplaner\FilmplanerSWP\obj\Debug\FilmplanerSWP.pdb
+C:\Users\lukas.hauser\Source\Repos\Filmplaner\FilmplanerSWP\obj\Debug\FilmplanerSWP.csproj.AssemblyReference.cache
+C:\Users\lukas.hauser\Source\Repos\Filmplaner\FilmplanerSWP\obj\Debug\FilmplanerSWP.Login.resources
