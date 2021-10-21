@@ -67,6 +67,7 @@ namespace FilmplanerSWP
             this.cB_passwordChar.Size = new System.Drawing.Size(15, 14);
             this.cB_passwordChar.TabIndex = 3;
             this.cB_passwordChar.UseVisualStyleBackColor = true;
+            this.cB_passwordChar.CheckedChanged += new System.EventHandler(this.cB_passwordChar_CheckedChanged);
             // 
             // pB_Login
             // 
@@ -86,6 +87,7 @@ namespace FilmplanerSWP
             this.pB_addUser.Size = new System.Drawing.Size(197, 25);
             this.pB_addUser.TabIndex = 5;
             this.pB_addUser.TabStop = false;
+            this.pB_addUser.Click += new System.EventHandler(this.pB_addUser_Click);
             // 
             // Login
             // 
@@ -105,6 +107,7 @@ namespace FilmplanerSWP
             this.Name = "Login";
             this.ShowIcon = false;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pB_Login)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_addUser)).EndInit();
             this.ResumeLayout(false);
