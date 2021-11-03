@@ -18,11 +18,12 @@ namespace FilmplanerSWP
             InitializeComponent();
         }
 
-
         private void tB_login_password_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+        public static string userrole;
 
         private void pB_Login_Click(object sender, EventArgs e)
         {

@@ -153,5 +153,19 @@ namespace FilmplanerSWP
                 MessageBox.Show(e.Message);
             }
         }
+
+        public static string checkRole(string username)
+        {
+            //Checks the Role from a user
+            string userRole;
+
+            con.Open();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = ("SELECT role FROM swp3_login WHERE username = '" + username + "';");
+            userRole = (string)cmd.ExecuteScalar();
+            con.Close();
+
+            return userRole;
+        }
     }
 }

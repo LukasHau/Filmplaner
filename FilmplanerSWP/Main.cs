@@ -16,5 +16,10 @@ namespace FilmplanerSWP
         {
             InitializeComponent();
         }
+
+        private void pB_exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
