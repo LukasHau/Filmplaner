@@ -108,8 +108,6 @@ namespace FilmplanerSWP
             string password = tB_login_password.Text;
 
             SQLConnection.create_user(username, password);
-
-            MessageBox.Show("Benutzer erfolgreich erstellt!");
         }
     }
 }

@@ -37,11 +37,6 @@ namespace FilmplanerSWP
             }
         }
 
-        public static string GetConnectionString()
-        {
-            return con.ConnectionString;
-        }
-
         //Before the User connects to a Database, the program double checks the connection to the Database
         public static bool TryConnection()
         {
@@ -54,7 +49,7 @@ namespace FilmplanerSWP
 
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show("Test\n"+e.Message);
                 return false;
             }
         }
@@ -82,7 +77,7 @@ namespace FilmplanerSWP
             {
                 con.Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "create table swp4_login (id int identity (1, 1) not null, username varchar(50) null, password varchar(200) null);";
+                cmd.CommandText = "create table login (id int identity (1, 1) not null, username varchar(50) null, password varchar(200) null, role varchar(50) null);";
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -101,7 +96,7 @@ namespace FilmplanerSWP
             {
                 con.Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = ("SELECT password FROM swp4_login WHERE username = '" + chosen_username + "';");
+                cmd.CommandText = ("SELECT password FROM login WHERE username = '" + chosen_username + "';");
                 hashedpw = (string)cmd.ExecuteScalar();
                 con.Close();
                 if (hashedpw != null)
@@ -146,13 +141,15 @@ namespace FilmplanerSWP
 
                     con.Open();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = ("INSERT INTO swp4_login (username, password) VALUES ('" + username + "', '" + hashedpw + "');");
+                    cmd.CommandText = ("INSERT INTO login (username, password, role) VALUES ('" + username + "', '" + hashedpw + "', 'user');");
                     cmd.ExecuteNonQuery();
                     con.Close();
+                    MessageBox.Show("User wurde erstellt!");
                 }
             }
             catch (Exception e)
             {
+                MessageBox.Show("User wurde nicht erstellt!");
                 MessageBox.Show(e.Message);
             }
         }
