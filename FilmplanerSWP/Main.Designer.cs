@@ -29,56 +29,56 @@ namespace FilmplanerSWP
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_calender = new System.Windows.Forms.Button();
+            this.btn_equipment = new System.Windows.Forms.Button();
+            this.btn_administration = new System.Windows.Forms.Button();
+            this.btn_employee = new System.Windows.Forms.Button();
             this.pB_exit = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pB_exit)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btn_calender
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button1.Font = new System.Drawing.Font("Lucida Sans", 21.75F);
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(82, 190);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(360, 102);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Kalender";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_calender.BackColor = System.Drawing.Color.Transparent;
+            this.btn_calender.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btn_calender.Font = new System.Drawing.Font("Lucida Sans", 21.75F);
+            this.btn_calender.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btn_calender.Location = new System.Drawing.Point(82, 190);
+            this.btn_calender.Name = "btn_calender";
+            this.btn_calender.Size = new System.Drawing.Size(360, 102);
+            this.btn_calender.TabIndex = 0;
+            this.btn_calender.Text = "Kalender";
+            this.btn_calender.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btn_equipment
             // 
-            this.button2.Font = new System.Drawing.Font("Lucida Sans", 21.75F);
-            this.button2.Location = new System.Drawing.Point(448, 190);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(360, 102);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Equipment";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_equipment.Font = new System.Drawing.Font("Lucida Sans", 21.75F);
+            this.btn_equipment.Location = new System.Drawing.Point(448, 190);
+            this.btn_equipment.Name = "btn_equipment";
+            this.btn_equipment.Size = new System.Drawing.Size(360, 102);
+            this.btn_equipment.TabIndex = 1;
+            this.btn_equipment.Text = "Equipment";
+            this.btn_equipment.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btn_administration
             // 
-            this.button3.Font = new System.Drawing.Font("Lucida Sans", 21.75F);
-            this.button3.Location = new System.Drawing.Point(82, 298);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(360, 102);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Verwaltung";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_administration.Font = new System.Drawing.Font("Lucida Sans", 21.75F);
+            this.btn_administration.Location = new System.Drawing.Point(82, 298);
+            this.btn_administration.Name = "btn_administration";
+            this.btn_administration.Size = new System.Drawing.Size(360, 102);
+            this.btn_administration.TabIndex = 2;
+            this.btn_administration.Text = "Verwaltung";
+            this.btn_administration.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btn_employee
             // 
-            this.button4.Font = new System.Drawing.Font("Lucida Sans", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(448, 298);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(360, 102);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Mitarbeiter";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_employee.Font = new System.Drawing.Font("Lucida Sans", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_employee.Location = new System.Drawing.Point(448, 298);
+            this.btn_employee.Name = "btn_employee";
+            this.btn_employee.Size = new System.Drawing.Size(360, 102);
+            this.btn_employee.TabIndex = 3;
+            this.btn_employee.Text = "Mitarbeiter";
+            this.btn_employee.UseVisualStyleBackColor = true;
             // 
             // pB_exit
             // 
@@ -99,15 +99,16 @@ namespace FilmplanerSWP
             this.ClientSize = new System.Drawing.Size(880, 589);
             this.ControlBox = false;
             this.Controls.Add(this.pB_exit);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_employee);
+            this.Controls.Add(this.btn_administration);
+            this.Controls.Add(this.btn_equipment);
+            this.Controls.Add(this.btn_calender);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main";
             this.Text = "Main";
+            this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pB_exit)).EndInit();
             this.ResumeLayout(false);
 
@@ -115,10 +116,10 @@ namespace FilmplanerSWP
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_calender;
+        private System.Windows.Forms.Button btn_equipment;
+        private System.Windows.Forms.Button btn_administration;
+        private System.Windows.Forms.Button btn_employee;
         private System.Windows.Forms.PictureBox pB_exit;
     }
 }

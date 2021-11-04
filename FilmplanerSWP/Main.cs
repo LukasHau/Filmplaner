@@ -21,5 +21,36 @@ namespace FilmplanerSWP
         {
             Application.Exit();
         }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Login.userrole == "none")
+                {
+                    btn_administration.Enabled = false;
+                    btn_employee.Enabled = false;
+                    btn_equipment.Enabled = false;
+                    btn_calender.Enabled = false;
+                }
+                else if (Login.userrole == "user")
+                {
+                    btn_administration.Enabled = false;
+                    btn_employee.Enabled = false;
+                    btn_equipment.Enabled = false;
+                }
+                else
+                {
+                    btn_administration.Enabled = true;
+                    btn_employee.Enabled = true;
+                    btn_equipment.Enabled = true;
+                    btn_calender.Enabled = true;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

@@ -49,43 +49,48 @@ namespace FilmplanerSWP
 
             catch (Exception e)
             {
-                MessageBox.Show("Test\n"+e.Message);
+                MessageBox.Show("Test at TryConnection\n"+e.Message);
                 return false;
+            }
+        }
+
+        public static void TryConnectTODB()
+        {
+            try
+            {
+                SetConnectionString("server = (localdb)\\MSSQLLocalDB; Integrated Security = true;");
+                con.Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = ("if not exists(select * from sys.databases where name = 'swp4_FilmplanerDB') begin create database [swp4_FilmplanerDB] end");
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+
+                SetConnectionString("server=(localdb)\\MSSQLLocalDB; Integrated Security = true; Database = 'swp4_FilmplanerDB'");
+
+
+                con.Open();
+                cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_login') CREATE TABLE swp4_login ([Id] INT IDENTITY (1, 1) NOT NULL, [username] VARCHAR(50) NULL,[password] VARCHAR(200) NULL, [role] VARCHAR(50) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
+                cmd.ExecuteNonQuery();
+
+
+
+                //cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp3_protocol') CREATE TABLE swp3_protocol ([Id] INT IDENTITY (1, 1) NOT NULL, [date] VARCHAR(50) NULL,[content] VARCHAR(1500) NULL, [loginID] INT NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
+                //cmd.ExecuteNonQuery();
+
+
+
+                //cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp3_vmaterial') CREATE TABLE swp3_vmaterial ([Id] INT IDENTITY(1, 1) NOT NULL, [date] DATETIME NULL, [vidpath] VARCHAR(50) NULL,[loginID] INT NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
+                //cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
             }
         }
         #endregion
 
-        public static void create_database()
-        {
-            try
-            {
-                con.Open();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "CREATE database swp4_FilmplanerDB";
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-        }
-
-        public static void create_table()
-        {
-            try
-            {
-                con.Open();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "create table login (id int identity (1, 1) not null, username varchar(50) null, password varchar(200) null, role varchar(50) null);";
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-        }
 
         public static bool CheckUsername(string chosen_username, string password)
         {
@@ -96,9 +101,10 @@ namespace FilmplanerSWP
             {
                 con.Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = ("SELECT password FROM login WHERE username = '" + chosen_username + "';");
+                cmd.CommandText = ("SELECT password FROM swp4_login WHERE username = '" + chosen_username + "';");
                 hashedpw = (string)cmd.ExecuteScalar();
                 con.Close();
+
                 if (hashedpw != null)
                 {
                     if (BCrypt.CheckPassword(password, hashedpw))
@@ -107,11 +113,13 @@ namespace FilmplanerSWP
                     }
                     else
                     {
+                        MessageBox.Show("Das Passwort ist falsch!");
                         return false;
                     }
                 }
                 else
                 {
+                    MessageBox.Show("Dieser Benutzername existiert nicht!");
                     return false;
                 }
 
@@ -136,20 +144,38 @@ namespace FilmplanerSWP
                 }
                 else
                 {
-                    salt = BCrypt.GenerateSalt();
-                    hashedpw = BCrypt.HashPassword(password, salt);
-
                     con.Open();
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = ("INSERT INTO login (username, password, role) VALUES ('" + username + "', '" + hashedpw + "', 'user');");
-                    cmd.ExecuteNonQuery();
+                    cmd.CommandText = ("SELECT password FROM swp4_login WHERE username = '" + username + "';");
+                    string temp = (string)cmd.ExecuteScalar();
                     con.Close();
-                    MessageBox.Show("User wurde erstellt!");
+
+
+
+                    if (temp == null)
+                    {
+                        salt = BCrypt.GenerateSalt();
+                        hashedpw = BCrypt.HashPassword(password, salt);
+
+
+
+                        con.Open();
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = ("INSERT INTO swp4_login (username, password, role) VALUES ('" + username + "', '" + hashedpw + "', 'none');");
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+
+
+
+                        MessageBox.Show("Benutzer wurde erfolgreich erstellt!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Der Benutzername wird bereits verwendet!");
+                    }
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show("User wurde nicht erstellt!");
                 MessageBox.Show(e.Message);
             }
         }
@@ -161,7 +187,7 @@ namespace FilmplanerSWP
 
             con.Open();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = ("SELECT role FROM swp3_login WHERE username = '" + username + "';");
+            cmd.CommandText = ("SELECT role FROM swp4_login WHERE username = '" + username + "';");
             userRole = (string)cmd.ExecuteScalar();
             con.Close();
 

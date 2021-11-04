@@ -57,7 +57,6 @@ namespace FilmplanerSWP
             this.tB_login_password.Name = "tB_login_password";
             this.tB_login_password.Size = new System.Drawing.Size(422, 41);
             this.tB_login_password.TabIndex = 1;
-            this.tB_login_password.TextChanged += new System.EventHandler(this.tB_login_password_TextChanged);
             // 
             // cB_passwordChar
             // 

@@ -18,11 +18,6 @@ namespace FilmplanerSWP
             InitializeComponent();
         }
 
-        private void tB_login_password_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         public static string userrole;
 
         private void pB_Login_Click(object sender, EventArgs e)
@@ -30,14 +25,10 @@ namespace FilmplanerSWP
             string username = tB_login_name.Text;
             string password = tB_login_password.Text;
 
-            //userrole = SQLConnection.checkRole(username);
+            userrole = SQLConnection.checkRole(username);
 
             //Checks if the username and the password are correct
-            if (!SQLConnection.CheckUsername(username, password))
-            {
-                MessageBox.Show("Falsche Anmeldedaten");
-            }
-            else
+            if (SQLConnection.CheckUsername(username, password))
             {
                 MessageBox.Show("Richtige Anmeldedaten");
 
@@ -47,46 +38,14 @@ namespace FilmplanerSWP
                 this.Hide();
                 temp.Show();
             }
+        
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
-            //user connects to the local database
-            try
-            {
-                SQLConnection.SetConnectionString("server=(localdb)\\MSSQLLocalDB; Integrated Security = true; Database = 'swp4_FilmplanerDB'");
-                if (!SQLConnection.TryConnection())
-                {
-                    SQLConnection.SetConnectionString("server=(localdb)\\MSSQLLocalDB; Integrated Security = true;");
-                    SQLConnection.create_database();
+            SQLConnection.TryConnectTODB();
 
-                    try
-                    {
-                        SQLConnection.SetConnectionString("server=(localdb)\\MSSQLLocalDB; Integrated Security = true; Database = 'swp4_FilmplanerDB'");
-                        if (SQLConnection.TryConnection())
-                        {
-                            SQLConnection.create_table();
-
-                            MessageBox.Show("Datenbank und Tabelle wurden erstellt!");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Tabelle konnte nicht erstellt werden.");
-                        }
-                    }
-                    catch (Exception ex)
-
-                    {
-                        MessageBox.Show("Datenbank konnte nicht erstellt werden.\n" + ex.Message);
-                    }
-                }
-                //The password gets defaced
-                tB_login_password.PasswordChar = '*';
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            tB_login_password.PasswordChar = '*';
         }
 
 
