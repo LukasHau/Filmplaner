@@ -69,6 +69,7 @@ namespace FilmplanerSWP
             this.btn_administration.TabIndex = 2;
             this.btn_administration.Text = "Verwaltung";
             this.btn_administration.UseVisualStyleBackColor = true;
+            this.btn_administration.Click += new System.EventHandler(this.btn_administration_Click);
             // 
             // btn_employee
             // 

@@ -52,5 +52,10 @@ namespace FilmplanerSWP
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btn_administration_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

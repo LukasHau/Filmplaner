@@ -75,13 +75,13 @@ namespace FilmplanerSWP
 
 
 
-                //cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp3_protocol') CREATE TABLE swp3_protocol ([Id] INT IDENTITY (1, 1) NOT NULL, [date] VARCHAR(50) NULL,[content] VARCHAR(1500) NULL, [loginID] INT NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
-                //cmd.ExecuteNonQuery();
+                cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_equipment') CREATE TABLE swp4_equipment ([Id] INT IDENTITY (1, 1) NOT NULL, [name] VARCHAR(50) NULL, [description] VARCHAR(50) NULL, [price] DECIMAL NULL, [installation] DATE NULL, [state] VARCHAR(50) NULL, [warranty] INT NULL, [info] VARCHAR(500) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
+                cmd.ExecuteNonQuery();
 
 
 
-                //cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp3_vmaterial') CREATE TABLE swp3_vmaterial ([Id] INT IDENTITY(1, 1) NOT NULL, [date] DATETIME NULL, [vidpath] VARCHAR(50) NULL,[loginID] INT NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
-                //cmd.ExecuteNonQuery();
+                cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_staff') CREATE TABLE swp4_staff ([Id] INT IDENTITY(1, 1) NOT NULL, [name] VARCHAR(50) NULL, [surname] VARCHAR(50) NULL, [age] INT NULL, [adress] VARCHAR(50) NULL, [starting_date] DATE NULL, [job] VARCHAR(50) NULL, [info] VARCHAR(500) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
+                cmd.ExecuteNonQuery();
                 con.Close();
             }
             catch (Exception e)
