@@ -57,5 +57,26 @@ namespace FilmplanerSWP
         {
 
         }
+
+        private void btn_calender_Click(object sender, EventArgs e)
+        {
+            Kalender temp = new Kalender();
+            this.Hide();
+            temp.Show();
+        }
+
+        private void btn_equipment_Click(object sender, EventArgs e)
+        {
+            Equipment temp = new Equipment();
+            this.Hide();
+            temp.Show();
+        }
+
+        private void btn_employee_Click(object sender, EventArgs e)
+        {
+            Mitarbeiter temp = new Mitarbeiter();
+            this.Hide();
+            temp.Show();
+        }
     }
 }

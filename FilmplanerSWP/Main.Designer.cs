@@ -49,6 +49,7 @@ namespace FilmplanerSWP
             this.btn_calender.TabIndex = 0;
             this.btn_calender.Text = "Kalender";
             this.btn_calender.UseVisualStyleBackColor = false;
+            this.btn_calender.Click += new System.EventHandler(this.btn_calender_Click);
             // 
             // btn_equipment
             // 
@@ -59,6 +60,7 @@ namespace FilmplanerSWP
             this.btn_equipment.TabIndex = 1;
             this.btn_equipment.Text = "Equipment";
             this.btn_equipment.UseVisualStyleBackColor = true;
+            this.btn_equipment.Click += new System.EventHandler(this.btn_equipment_Click);
             // 
             // btn_administration
             // 
@@ -80,6 +82,7 @@ namespace FilmplanerSWP
             this.btn_employee.TabIndex = 3;
             this.btn_employee.Text = "Mitarbeiter";
             this.btn_employee.UseVisualStyleBackColor = true;
+            this.btn_employee.Click += new System.EventHandler(this.btn_employee_Click);
             // 
             // pB_exit
             // 

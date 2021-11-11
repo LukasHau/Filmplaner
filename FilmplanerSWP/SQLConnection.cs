@@ -18,6 +18,7 @@ namespace FilmplanerSWP
         public static SqlCommand cmd = new SqlCommand();
         public static DataTable dt = new DataTable();
         private static SqlDataAdapter adp = new SqlDataAdapter();
+        public static SqlCommandBuilder CommandBuilder = new SqlCommandBuilder(adp);
         public static bool errormessage;
         public static string choosen_username;
 
@@ -91,7 +92,7 @@ namespace FilmplanerSWP
         }
         #endregion
 
-
+        #region Login
         public static bool CheckUsername(string chosen_username, string password)
         {
             //checks if the username and password are correct
@@ -180,6 +181,8 @@ namespace FilmplanerSWP
             }
         }
 
+        #endregion
+
         public static string checkRole(string username)
         {
             //Checks the Role from a user
@@ -193,5 +196,39 @@ namespace FilmplanerSWP
 
             return userRole;
         }
+
+        #region Fill_tables
+
+        public static DataTable ShowData(string table)
+        {
+            try
+            {
+                cmd = new SqlCommand("SELECT * FROM " + table, con);
+                adp.SelectCommand = cmd;
+                adp.Fill(dt);
+                return dt;
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return dt;
+            }
+        }
+
+        public static void SaveTable()
+        {
+            try
+            {
+                adp.UpdateCommand = CommandBuilder.GetUpdateCommand();
+                adp.Update(dt);
+                MessageBox.Show("Tabelle wurde aktualisiert!");
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+        #endregion
+
     }
 }
