@@ -24,7 +24,7 @@ namespace FilmplanerSWP
 
         private void Equipment_Load(object sender, EventArgs e)
         {
-            dG_Equipment.DataSource = SQLConnection.ShowData("swp4_equipment");
+            btn_add.Enabled = false;
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -41,6 +41,30 @@ namespace FilmplanerSWP
             Main temp = new Main();
             this.Close();
             temp.Show();
+        }
+
+        private void cB_addEquipment_CheckedChanged(object sender, EventArgs e)
+        {
+            btn_add.Enabled = true;
+            btn_save.Enabled = false;
+
+            if (cB_addEquipment.Checked)
+            {
+                btn_add.Enabled = true;
+                btn_save.Enabled = false;
+                btn_load.Enabled = false;
+            }
+            else
+            {
+                btn_add.Enabled = false;
+                btn_save.Enabled = true;
+                btn_load.Enabled = true;
+            }
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            SQLConnection.FillEquipment(tB_name.Text, cB_description.Text, Convert.ToDecimal(tB_price.Text), dTP_installation.Value, cB_state.Text, Convert.ToInt32(tB_warrnaty.Text), rTB_info.Text);
         }
     }
 }

@@ -76,7 +76,7 @@ namespace FilmplanerSWP
 
 
 
-                cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_equipment') CREATE TABLE swp4_equipment ([Id] INT IDENTITY (1, 1) NOT NULL, [name] VARCHAR(50) NULL, [description] VARCHAR(50) NULL, [price] DECIMAL NULL, [installation] DATE NULL, [state] VARCHAR(50) NULL, [warranty] INT NULL, [info] VARCHAR(500) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
+                cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_equipment') CREATE TABLE swp4_equipment ([Id] INT IDENTITY (1, 1) NOT NULL, [name] VARCHAR(50) NULL, [description] VARCHAR(50) NULL, [price] DECIMAL NULL, [installation] DATETIME NULL, [state] VARCHAR(50) NULL, [warranty] INT NULL, [info] VARCHAR(500) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
                 cmd.ExecuteNonQuery();
 
 
@@ -229,6 +229,23 @@ namespace FilmplanerSWP
             }
         }
         #endregion
+
+        public static void FillEquipment(string name, string description, decimal price, DateTime installation, string state, int warranty, string info)
+        {
+            try
+            {
+                con.Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = ("INSERT INTO swp4_equipment(name, description, price, installation, state, warranty, info) VALUES('" + name + "', '" +
+                    description + "', '" + price + "', '" + installation + "', '" + state + "', '" + warranty + "', '" + info + "');");
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
 
     }
 }
