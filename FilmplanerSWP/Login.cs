@@ -30,8 +30,6 @@ namespace FilmplanerSWP
             //Checks if the username and the password are correct
             if (SQLConnection.CheckUsername(username, password))
             {
-                MessageBox.Show("Richtige Anmeldedaten");
-
                 SQLConnection.choosen_username = username;
 
                 Main temp = new Main();

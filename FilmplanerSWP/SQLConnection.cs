@@ -230,22 +230,33 @@ namespace FilmplanerSWP
         }
         #endregion
 
-        public static void FillEquipment(string name, string description, decimal price, DateTime installation, string state, int warranty, string info)
+        public static void FillEquipment(string name, string description, decimal price, string installation, string state, int warranty, string info)
         {
-            try
+            //checks if all required data is filled
+            if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(description) || price == 0 || String.IsNullOrEmpty(state))
             {
-                con.Open();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = ("INSERT INTO swp4_equipment(name, description, price, installation, state, warranty, info) VALUES('" + name + "', '" +
-                    description + "', '" + price + "', '" + installation + "', '" + state + "', '" + warranty + "', '" + info + "');");
-                cmd.ExecuteNonQuery();
-                con.Close();
+                MessageBox.Show("Bitte füllen Sie alle Felder aus!");
+                errormessage = true;
             }
-            catch(Exception e)
+            else
             {
-                MessageBox.Show(e.Message);
+                try
+                {
+                    con.Open();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = ("INSERT INTO swp4_equipment(name, description, price, installation, state, warranty, info) VALUES('" + name + "', '" +
+                        description + "', '" + price + "', '" + installation + "', '" + state + "', '" + warranty + "', '" + info + "');");
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    errormessage = false;
+                    MessageBox.Show(name + " wurde hinzugefügt!");
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
             }
         }
-
     }
 }

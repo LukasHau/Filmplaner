@@ -25,6 +25,8 @@ namespace FilmplanerSWP
         private void Equipment_Load(object sender, EventArgs e)
         {
             btn_add.Enabled = false;
+            cB_description.DropDownStyle = ComboBoxStyle.DropDownList;
+            cB_state.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -64,7 +66,32 @@ namespace FilmplanerSWP
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            SQLConnection.FillEquipment(tB_name.Text, cB_description.Text, Convert.ToDecimal(tB_price.Text), dTP_installation.Value, cB_state.Text, Convert.ToInt32(tB_warrnaty.Text), rTB_info.Text);
+            SQLConnection.errormessage = true;
+
+            try
+            {
+                SQLConnection.FillEquipment(tB_name.Text, cB_description.Text, Convert.ToDecimal(tB_price.Text), dTP_installation.ToString(), cB_state.Text, Convert.ToInt32(tB_warrnaty.Text), rTB_info.Text);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            if (SQLConnection.errormessage == false)
+            {
+                ClearEquipment();
+            }
+        }
+
+        public void ClearEquipment()
+        {
+            tB_name.Clear();
+            cB_description.Text = "";
+            tB_price.Clear();
+            dTP_installation.Value = DateTime.Now;
+            cB_state.Text = "";
+            tB_warrnaty.Clear();
+            rTB_info.Clear();
         }
     }
 }

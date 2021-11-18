@@ -147,6 +147,12 @@ namespace FilmplanerSWP
             // cB_state
             // 
             this.cB_state.FormattingEnabled = true;
+            this.cB_state.Items.AddRange(new object[] {
+            "Sehr Gut",
+            "Gut",
+            "Ok",
+            "Schlecht",
+            "Sehr Schlecht"});
             this.cB_state.Location = new System.Drawing.Point(112, 231);
             this.cB_state.Name = "cB_state";
             this.cB_state.Size = new System.Drawing.Size(200, 21);
@@ -183,7 +189,22 @@ namespace FilmplanerSWP
             // 
             // cB_description
             // 
-            this.cB_description.FormattingEnabled = true;
+            this.cB_description.Items.AddRange(new object[] {
+            "Kamera",
+            "Objektiv",
+            "Mikrofon",
+            "SD Karte",
+            "C-Fast Karte",
+            "Licht",
+            "Laptop",
+            "Akku",
+            "Stativ",
+            "Gimbal",
+            "Drohne",
+            "Fernsteuerung",
+            "Ladegerät",
+            "Pelicase",
+            "Zubehör"});
             this.cB_description.Location = new System.Drawing.Point(112, 111);
             this.cB_description.Name = "cB_description";
             this.cB_description.Size = new System.Drawing.Size(200, 21);
@@ -263,9 +284,9 @@ namespace FilmplanerSWP
         private System.Windows.Forms.TextBox tB_price;
         private System.Windows.Forms.TextBox tB_name;
         private System.Windows.Forms.RichTextBox rTB_info;
-        private System.Windows.Forms.ComboBox cB_description;
         private System.Windows.Forms.TextBox tB_warrnaty;
         private System.Windows.Forms.Button btn_load;
         private System.Windows.Forms.Button btn_add;
+        private System.Windows.Forms.ComboBox cB_description;
     }
 }
