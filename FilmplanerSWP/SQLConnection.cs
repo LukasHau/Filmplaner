@@ -21,6 +21,7 @@ namespace FilmplanerSWP
         public static SqlCommandBuilder CommandBuilder = new SqlCommandBuilder(adp);
         public static bool errormessage;
         public static string choosen_username;
+        public static List<int> IDSelectEquipment = new List<int>();
 
 
         #region Connection
@@ -230,7 +231,7 @@ namespace FilmplanerSWP
         }
         #endregion
 
-        public static void FillEquipment(string name, string description, decimal price, string installation, string state, int warranty, string info)
+        public static void FillEquipment(string name, string description, decimal price, DateTime installation, string state, int warranty, string info)
         {
             //checks if all required data is filled
             if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(description) || price == 0 || String.IsNullOrEmpty(state))
@@ -245,7 +246,7 @@ namespace FilmplanerSWP
                     con.Open();
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = ("INSERT INTO swp4_equipment(name, description, price, installation, state, warranty, info) VALUES('" + name + "', '" +
-                        description + "', '" + price + "', '" + installation + "', '" + state + "', '" + warranty + "', '" + info + "');");
+                        description + "', '" + price + "', '" + installation.ToString() + "', '" + state + "', '" + warranty + "', '" + info + "');");
                     cmd.ExecuteNonQuery();
                     con.Close();
 
@@ -254,8 +255,40 @@ namespace FilmplanerSWP
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    con.Close();
+                    MessageBox.Show(e.ToString());
                 }
+            }
+        }
+
+        public static List<int> SelectEquipmentID()
+        {
+            try
+            {
+                con.Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT Id FROM swp4_equipment";
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        int temp = reader.GetInt32(0);
+                        IDSelectEquipment.Add(temp);
+                    }
+                }
+                else
+                {
+                    
+                }
+                con.Close();
+                return IDSelectEquipment;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return IDSelectEquipment;
             }
         }
     }

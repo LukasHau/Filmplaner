@@ -48,11 +48,13 @@ namespace FilmplanerSWP
             this.tB_warrnaty = new System.Windows.Forms.TextBox();
             this.btn_load = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
+            this.lbl_index = new System.Windows.Forms.Label();
+            this.cB_indexEquipment = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(663, 302);
+            this.btn_save.Location = new System.Drawing.Point(533, 302);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(94, 45);
             this.btn_save.TabIndex = 1;
@@ -219,7 +221,7 @@ namespace FilmplanerSWP
             // 
             // btn_load
             // 
-            this.btn_load.Location = new System.Drawing.Point(563, 302);
+            this.btn_load.Location = new System.Drawing.Point(433, 302);
             this.btn_load.Name = "btn_load";
             this.btn_load.Size = new System.Drawing.Size(94, 45);
             this.btn_load.TabIndex = 24;
@@ -228,7 +230,7 @@ namespace FilmplanerSWP
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(463, 302);
+            this.btn_add.Location = new System.Drawing.Point(333, 302);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(94, 45);
             this.btn_add.TabIndex = 25;
@@ -236,11 +238,30 @@ namespace FilmplanerSWP
             this.btn_add.UseVisualStyleBackColor = true;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
+            // lbl_index
+            // 
+            this.lbl_index.AutoSize = true;
+            this.lbl_index.Location = new System.Drawing.Point(352, 29);
+            this.lbl_index.Name = "lbl_index";
+            this.lbl_index.Size = new System.Drawing.Size(36, 13);
+            this.lbl_index.TabIndex = 26;
+            this.lbl_index.Text = "Index:";
+            // 
+            // cB_indexEquipment
+            // 
+            this.cB_indexEquipment.FormattingEnabled = true;
+            this.cB_indexEquipment.Location = new System.Drawing.Point(427, 26);
+            this.cB_indexEquipment.Name = "cB_indexEquipment";
+            this.cB_indexEquipment.Size = new System.Drawing.Size(200, 21);
+            this.cB_indexEquipment.TabIndex = 27;
+            // 
             // Equipment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(769, 359);
+            this.ClientSize = new System.Drawing.Size(644, 359);
+            this.Controls.Add(this.cB_indexEquipment);
+            this.Controls.Add(this.lbl_index);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.btn_load);
             this.Controls.Add(this.tB_warrnaty);
@@ -288,5 +309,7 @@ namespace FilmplanerSWP
         private System.Windows.Forms.Button btn_load;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.ComboBox cB_description;
+        private System.Windows.Forms.Label lbl_index;
+        private System.Windows.Forms.ComboBox cB_indexEquipment;
     }
 }

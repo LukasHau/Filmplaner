@@ -27,6 +27,12 @@ namespace FilmplanerSWP
             btn_add.Enabled = false;
             cB_description.DropDownStyle = ComboBoxStyle.DropDownList;
             cB_state.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            foreach(int x in SQLConnection.SelectEquipmentID())
+            {
+                x.ToString();
+                cB_indexEquipment.Items.Add(x);               
+            }
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -40,6 +46,7 @@ namespace FilmplanerSWP
 
         private void btn_back_Click(object sender, EventArgs e)
         {
+            ClearEquipment();
             Main temp = new Main();
             this.Close();
             temp.Show();
@@ -55,12 +62,14 @@ namespace FilmplanerSWP
                 btn_add.Enabled = true;
                 btn_save.Enabled = false;
                 btn_load.Enabled = false;
+                cB_indexEquipment.Enabled = false;
             }
             else
             {
                 btn_add.Enabled = false;
                 btn_save.Enabled = true;
                 btn_load.Enabled = true;
+                cB_indexEquipment.Enabled = true;
             }
         }
 
@@ -70,7 +79,8 @@ namespace FilmplanerSWP
 
             try
             {
-                SQLConnection.FillEquipment(tB_name.Text, cB_description.Text, Convert.ToDecimal(tB_price.Text), dTP_installation.ToString(), cB_state.Text, Convert.ToInt32(tB_warrnaty.Text), rTB_info.Text);
+                SQLConnection.FillEquipment(tB_name.Text, cB_description.Text, Convert.ToDecimal(tB_price.Text), dTP_installation.Value.Date, cB_state.Text, Convert.ToInt32(tB_warrnaty.Text), rTB_info.Text);
+
             }
             catch(Exception ex)
             {
@@ -86,12 +96,14 @@ namespace FilmplanerSWP
         public void ClearEquipment()
         {
             tB_name.Clear();
-            cB_description.Text = "";
+            cB_description.SelectedIndex = -1;
             tB_price.Clear();
             dTP_installation.Value = DateTime.Now;
-            cB_state.Text = "";
+            cB_state.SelectedIndex = -1;
             tB_warrnaty.Clear();
             rTB_info.Clear();
+            cB_indexEquipment.SelectedIndex = -1;
+            cB_indexEquipment.Items.Clear();
         }
     }
 }
