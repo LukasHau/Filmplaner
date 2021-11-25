@@ -28,20 +28,15 @@ namespace FilmplanerSWP
             cB_description.DropDownStyle = ComboBoxStyle.DropDownList;
             cB_state.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            foreach(int x in SQLConnection.SelectEquipmentID())
-            {
-                x.ToString();
-                cB_indexEquipment.Items.Add(x);               
-            }
+            //clear all fields and imports the index
+            ClearEquipment();
         }
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            SQLConnection.SaveTable();
             Equipment temp = new Equipment();
             this.Close();
             temp.Show();
-
         }
 
         private void btn_back_Click(object sender, EventArgs e)
@@ -104,6 +99,21 @@ namespace FilmplanerSWP
             rTB_info.Clear();
             cB_indexEquipment.SelectedIndex = -1;
             cB_indexEquipment.Items.Clear();
+
+            foreach (int x in SQLConnection.SelectEquipmentID())
+            {
+                x.ToString();
+                SQLConnection.SelectEquipmentName(x);
+                cB_indexEquipment.Items.Add(x + " - " + SQLConnection.NameSelectEquipment);
+            }
+        }
+
+        private void btn_load_Click(object sender, EventArgs e)
+        {
+            string temp = cB_indexEquipment.SelectedItem.ToString();
+            int x = Convert.ToInt32(temp.Substring(0, 2));
+            SQLConnection.LoadEqipment(x);
+            MessageBox.Show(SQLConnection.EqipmentLoad);
         }
     }
 }

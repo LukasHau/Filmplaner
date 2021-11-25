@@ -22,6 +22,8 @@ namespace FilmplanerSWP
         public static bool errormessage;
         public static string choosen_username;
         public static List<int> IDSelectEquipment = new List<int>();
+        public static string NameSelectEquipment;
+        public static string EqipmentLoad;
 
 
         #region Connection
@@ -198,39 +200,7 @@ namespace FilmplanerSWP
             return userRole;
         }
 
-        #region Fill_tables
-
-        public static DataTable ShowData(string table)
-        {
-            try
-            {
-                cmd = new SqlCommand("SELECT * FROM " + table, con);
-                adp.SelectCommand = cmd;
-                adp.Fill(dt);
-                return dt;
-            }
-            catch(Exception e)
-            {
-                MessageBox.Show(e.Message);
-                return dt;
-            }
-        }
-
-        public static void SaveTable()
-        {
-            try
-            {
-                adp.UpdateCommand = CommandBuilder.GetUpdateCommand();
-                adp.Update(dt);
-                MessageBox.Show("Tabelle wurde aktualisiert!");
-            }
-            catch(Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-        }
-        #endregion
-
+        #region EQIPMENT
         public static void FillEquipment(string name, string description, decimal price, DateTime installation, string state, int warranty, string info)
         {
             //checks if all required data is filled
@@ -261,13 +231,32 @@ namespace FilmplanerSWP
             }
         }
 
-        public static List<int> SelectEquipmentID()
+        public static void LoadEqipment(int ID)
         {
             try
             {
                 con.Open();
+                cmd.CommandText = ("SELECT * FROM swp4_equipment where ID = '" + ID + "';");              
+                EqipmentLoad = Convert.ToString(cmd.ExecuteScalar());
+                con.Close();             
+            }
+            catch(Exception e)
+            {
+                con.Close();
+                MessageBox.Show(e.ToString());               
+            }
+        }
+
+        #region GetEquipmentIndex
+
+        public static List<int> SelectEquipmentID()
+        {
+            try
+            {
+                IDSelectEquipment.Clear();
+                con.Open();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT Id FROM swp4_equipment";
+                cmd.CommandText = "SELECT ID FROM swp4_equipment";
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.HasRows)
@@ -291,5 +280,24 @@ namespace FilmplanerSWP
                 return IDSelectEquipment;
             }
         }
+
+        public static void SelectEquipmentName(int ID)
+        {
+            try
+            {
+                con.Open();
+                cmd.CommandText = ("SELECT name FROM swp4_equipment where ID = '" + ID + "';");
+                NameSelectEquipment = (string)cmd.ExecuteScalar();
+                con.Close();             
+            }
+            catch (Exception e)
+            {
+                con.Close();
+                MessageBox.Show(e.ToString());
+            }
+        }
+        #endregion
+
+        #endregion
     }
 }
