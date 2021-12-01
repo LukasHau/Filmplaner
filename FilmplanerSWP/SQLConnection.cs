@@ -164,7 +164,7 @@ namespace FilmplanerSWP
 
                         con.Open();
                         cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = ("INSERT INTO swp4_login (username, password, role) VALUES ('" + username + "', '" + hashedpw + "', 'none');");
+                        cmd.CommandText = ("INSERT INTO swp4_login (username, password, role) VALUES ('" + username + "', '" + hashedpw + "', 'admin');");
                         cmd.ExecuteNonQuery();
                         con.Close();
 
