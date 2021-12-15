@@ -110,9 +110,9 @@ namespace FilmplanerSWP
 
         private void btn_load_Click(object sender, EventArgs e)
         {
-            string temp = cB_indexEquipment.SelectedItem.ToString();
-            int x = Convert.ToInt32(temp.Substring(0, 2));
+            int x = Convert.ToInt32(cB_indexEquipment.SelectedItem.ToString().Substring(0, 2));
             SQLConnection.LoadEqipment(x);
+
             MessageBox.Show(SQLConnection.EqipmentLoad);
         }
     }
