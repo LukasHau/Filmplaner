@@ -236,8 +236,7 @@ namespace FilmplanerSWP
             try
             {
                 con.Open();
-                //cmd.CommandText = ("SELECT * FROM swp4_equipment where ID = '" + ID + "';");
-                cmd.CommandText = ("SELECT * FROM swp4_equipment;");  
+                cmd.CommandText = ("SELECT name FROM swp4_equipment where ID = '" + ID + "';"); 
                 EqipmentLoad = Convert.ToString(cmd.ExecuteNonQuery());
                 con.Close();             
             }
