@@ -50,11 +50,12 @@ namespace FilmplanerSWP
             this.btn_add = new System.Windows.Forms.Button();
             this.lbl_index = new System.Windows.Forms.Label();
             this.cB_indexEquipment = new System.Windows.Forms.ComboBox();
+            this.btn_delete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(533, 302);
+            this.btn_save.Location = new System.Drawing.Point(438, 302);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(94, 45);
             this.btn_save.TabIndex = 1;
@@ -221,7 +222,7 @@ namespace FilmplanerSWP
             // 
             // btn_load
             // 
-            this.btn_load.Location = new System.Drawing.Point(433, 302);
+            this.btn_load.Location = new System.Drawing.Point(338, 302);
             this.btn_load.Name = "btn_load";
             this.btn_load.Size = new System.Drawing.Size(94, 45);
             this.btn_load.TabIndex = 24;
@@ -231,7 +232,7 @@ namespace FilmplanerSWP
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(333, 302);
+            this.btn_add.Location = new System.Drawing.Point(238, 302);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(94, 45);
             this.btn_add.TabIndex = 25;
@@ -256,11 +257,22 @@ namespace FilmplanerSWP
             this.cB_indexEquipment.Size = new System.Drawing.Size(200, 21);
             this.cB_indexEquipment.TabIndex = 27;
             // 
+            // btn_delete
+            // 
+            this.btn_delete.Location = new System.Drawing.Point(538, 302);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(94, 45);
+            this.btn_delete.TabIndex = 28;
+            this.btn_delete.Text = "Löschen";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
+            // 
             // Equipment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(644, 359);
+            this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.cB_indexEquipment);
             this.Controls.Add(this.lbl_index);
             this.Controls.Add(this.btn_add);
@@ -312,5 +324,6 @@ namespace FilmplanerSWP
         private System.Windows.Forms.ComboBox cB_description;
         private System.Windows.Forms.Label lbl_index;
         private System.Windows.Forms.ComboBox cB_indexEquipment;
+        private System.Windows.Forms.Button btn_delete;
     }
 }

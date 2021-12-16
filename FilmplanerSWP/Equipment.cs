@@ -12,6 +12,7 @@ namespace FilmplanerSWP
 {
     public partial class Equipment : Form
     {
+        public int ID = 0;
         public Equipment()
         {
             InitializeComponent();
@@ -34,9 +35,17 @@ namespace FilmplanerSWP
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            Equipment temp = new Equipment();
-            this.Close();
-            temp.Show();
+            SQLConnection.ChangeEqipment(tB_name.Text, cB_description.Text, Convert.ToDecimal(tB_price.Text), dTP_installation.Value.Date, cB_state.Text, Convert.ToInt32(tB_warrnaty.Text), rTB_info.Text, ID);
+
+            SQLConnection.LoadEqipment(ID);
+
+            tB_name.Text = SQLConnection.EqipmentName;
+            cB_description.Text = SQLConnection.EqipmentDescription;
+            tB_price.Text = SQLConnection.EqipmentPrice;
+            dTP_installation.Value = SQLConnection.EqipmentInstallation;
+            cB_state.Text = SQLConnection.EqipmentState;
+            tB_warrnaty.Text = SQLConnection.EqipmentWarranty;
+            rTB_info.Text = SQLConnection.EqipmentInfo;
         }
 
         private void btn_back_Click(object sender, EventArgs e)
@@ -58,6 +67,7 @@ namespace FilmplanerSWP
                 btn_save.Enabled = false;
                 btn_load.Enabled = false;
                 cB_indexEquipment.Enabled = false;
+                btn_delete.Enabled = false;
             }
             else
             {
@@ -65,6 +75,7 @@ namespace FilmplanerSWP
                 btn_save.Enabled = true;
                 btn_load.Enabled = true;
                 cB_indexEquipment.Enabled = true;
+                btn_delete.Enabled = true;
             }
         }
 
@@ -110,10 +121,31 @@ namespace FilmplanerSWP
 
         private void btn_load_Click(object sender, EventArgs e)
         {
-            int x = Convert.ToInt32(cB_indexEquipment.SelectedItem.ToString().Substring(0, 2));
-            SQLConnection.LoadEqipment(x);
+            ID = Convert.ToInt32(cB_indexEquipment.SelectedItem.ToString().Substring(0, 2));
+            SQLConnection.LoadEqipment(ID);
 
-            MessageBox.Show(SQLConnection.EqipmentLoad);
+            tB_name.Text = SQLConnection.EqipmentName;
+            cB_description.Text = SQLConnection.EqipmentDescription;
+            tB_price.Text = SQLConnection.EqipmentPrice;
+            dTP_installation.Value = SQLConnection.EqipmentInstallation;
+            cB_state.Text = SQLConnection.EqipmentState;
+            tB_warrnaty.Text = SQLConnection.EqipmentWarranty;
+            rTB_info.Text = SQLConnection.EqipmentInfo;
+
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            ID = Convert.ToInt32(cB_indexEquipment.SelectedItem.ToString().Substring(0, 2));
+            SQLConnection.LoadEqipment(ID);
+
+            DialogResult result = MessageBox.Show("Wollen Sie " + SQLConnection.EqipmentName + " wirklich löschen?", "Löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                SQLConnection.DeleteEqipment(ID);
+            }
+
+            ClearEquipment();
         }
     }
 }

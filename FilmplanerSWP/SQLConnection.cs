@@ -23,8 +23,16 @@ namespace FilmplanerSWP
         public static string choosen_username;
         public static List<int> IDSelectEquipment = new List<int>();
         public static string NameSelectEquipment;
-        public static string EqipmentLoad;
 
+        #region VariablesForEquipmentLoad
+        public static string EqipmentName;
+        public static string EqipmentDescription;
+        public static string EqipmentPrice;
+        public static DateTime EqipmentInstallation;
+        public static string EqipmentState;
+        public static string EqipmentWarranty;
+        public static string EqipmentInfo;
+        #endregion
 
         #region Connection
         //sets the conncetion string
@@ -236,14 +244,78 @@ namespace FilmplanerSWP
             try
             {
                 con.Open();
-                cmd.CommandText = ("SELECT name FROM swp4_equipment where ID = '" + ID + "';"); 
-                EqipmentLoad = Convert.ToString(cmd.ExecuteNonQuery());
-                con.Close();             
+                cmd.CommandText = ("SELECT name FROM swp4_equipment where ID = '" + ID + "';");
+                EqipmentName = (string)cmd.ExecuteScalar();
+
+                cmd.CommandText = ("SELECT description FROM swp4_equipment where ID = '" + ID + "';");
+                EqipmentDescription = (string)cmd.ExecuteScalar();
+
+                cmd.CommandText = ("SELECT price FROM swp4_equipment where ID = '" + ID + "';");
+                EqipmentPrice = Convert.ToString((decimal)cmd.ExecuteScalar());
+
+                cmd.CommandText = ("SELECT installation FROM swp4_equipment where ID = '" + ID + "';");
+                EqipmentInstallation = (DateTime)cmd.ExecuteScalar();
+
+                cmd.CommandText = ("SELECT state FROM swp4_equipment where ID = '" + ID + "';");
+                EqipmentState = (string)cmd.ExecuteScalar();
+
+                cmd.CommandText = ("SELECT warranty FROM swp4_equipment where ID = '" + ID + "';");
+                EqipmentWarranty = Convert.ToString((int)cmd.ExecuteScalar());
+
+                cmd.CommandText = ("SELECT info FROM swp4_equipment where ID = '" + ID + "';");
+                EqipmentInfo = (string)cmd.ExecuteScalar();
+                con.Close();
             }
             catch(Exception e)
             {
                 con.Close();
                 MessageBox.Show(e.ToString());               
+            }
+        }
+
+        public static void ChangeEqipment(string name, string description, decimal price, DateTime installation, string state, int warranty, string info, int ID)
+        {
+            //checks if all required data is filled
+            if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(description) || price == 0 || String.IsNullOrEmpty(state))
+            {
+                MessageBox.Show("Bitte füllen Sie alle Felder aus!");
+            }
+            else
+            {
+                try
+                {
+                    con.Open();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = ("UPDATE swp4_equipment set name = '" + name + "', description = '" + description + "', price = '" + price + "', installation = '" + installation.ToString() + "', state = '" + state + "', warranty = '" + warranty + "', info = '" + info + "' where ID = '" + ID + "';");
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    MessageBox.Show(name + " wurde bearbeitet!");
+                }
+                catch (Exception e)
+                {
+                    con.Close();
+                    MessageBox.Show(e.ToString());
+                }
+            }
+        }
+
+        public static void DeleteEqipment(int ID)
+        {
+            try
+            {
+                con.Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = ("DELETE FROM swp4_equipment WHERE ID = '" + ID + "';");
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                MessageBox.Show(EqipmentName + " wurde gelöscht!");
+            }
+            catch (Exception e)
+            {
+                con.Close();
+                MessageBox.Show(e.ToString());
             }
         }
 
@@ -297,6 +369,10 @@ namespace FilmplanerSWP
             }
         }
         #endregion
+
+        #endregion
+
+        #region Workers
 
         #endregion
     }
