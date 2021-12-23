@@ -73,7 +73,7 @@ namespace FilmplanerSWP
             // 
             this.lbl_sonntag.AutoSize = true;
             this.lbl_sonntag.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_sonntag.Location = new System.Drawing.Point(42, 36);
+            this.lbl_sonntag.Location = new System.Drawing.Point(42, 33);
             this.lbl_sonntag.Name = "lbl_sonntag";
             this.lbl_sonntag.Size = new System.Drawing.Size(53, 19);
             this.lbl_sonntag.TabIndex = 2;
@@ -83,7 +83,7 @@ namespace FilmplanerSWP
             // 
             this.lbl_montag.AutoSize = true;
             this.lbl_montag.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_montag.Location = new System.Drawing.Point(160, 36);
+            this.lbl_montag.Location = new System.Drawing.Point(160, 33);
             this.lbl_montag.Name = "lbl_montag";
             this.lbl_montag.Size = new System.Drawing.Size(48, 19);
             this.lbl_montag.TabIndex = 3;
@@ -93,7 +93,7 @@ namespace FilmplanerSWP
             // 
             this.lbl_mittwoch.AutoSize = true;
             this.lbl_mittwoch.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_mittwoch.Location = new System.Drawing.Point(376, 36);
+            this.lbl_mittwoch.Location = new System.Drawing.Point(376, 33);
             this.lbl_mittwoch.Name = "lbl_mittwoch";
             this.lbl_mittwoch.Size = new System.Drawing.Size(57, 19);
             this.lbl_mittwoch.TabIndex = 5;
@@ -103,7 +103,7 @@ namespace FilmplanerSWP
             // 
             this.lbl_dienstag.AutoSize = true;
             this.lbl_dienstag.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_dienstag.Location = new System.Drawing.Point(271, 36);
+            this.lbl_dienstag.Location = new System.Drawing.Point(271, 33);
             this.lbl_dienstag.Name = "lbl_dienstag";
             this.lbl_dienstag.Size = new System.Drawing.Size(55, 19);
             this.lbl_dienstag.TabIndex = 4;
@@ -113,7 +113,7 @@ namespace FilmplanerSWP
             // 
             this.lbl_freitag.AutoSize = true;
             this.lbl_freitag.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_freitag.Location = new System.Drawing.Point(610, 36);
+            this.lbl_freitag.Location = new System.Drawing.Point(610, 33);
             this.lbl_freitag.Name = "lbl_freitag";
             this.lbl_freitag.Size = new System.Drawing.Size(46, 19);
             this.lbl_freitag.TabIndex = 7;
@@ -123,7 +123,7 @@ namespace FilmplanerSWP
             // 
             this.lbl_donnerstag.AutoSize = true;
             this.lbl_donnerstag.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_donnerstag.Location = new System.Drawing.Point(484, 36);
+            this.lbl_donnerstag.Location = new System.Drawing.Point(484, 33);
             this.lbl_donnerstag.Name = "lbl_donnerstag";
             this.lbl_donnerstag.Size = new System.Drawing.Size(70, 19);
             this.lbl_donnerstag.TabIndex = 6;
@@ -133,7 +133,7 @@ namespace FilmplanerSWP
             // 
             this.lbl_samstag.AutoSize = true;
             this.lbl_samstag.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_samstag.Location = new System.Drawing.Point(721, 36);
+            this.lbl_samstag.Location = new System.Drawing.Point(721, 33);
             this.lbl_samstag.Name = "lbl_samstag";
             this.lbl_samstag.Size = new System.Drawing.Size(56, 19);
             this.lbl_samstag.TabIndex = 8;

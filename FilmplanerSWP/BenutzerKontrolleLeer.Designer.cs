@@ -37,6 +37,7 @@ namespace FilmplanerSWP
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "BenutzerKontrolleLeer";
             this.Size = new System.Drawing.Size(107, 86);
+            this.Load += new System.EventHandler(this.BenutzerKontrolleLeer_Load);
             this.ResumeLayout(false);
 
         }

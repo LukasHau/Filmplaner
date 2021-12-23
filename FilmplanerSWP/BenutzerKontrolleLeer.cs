@@ -16,5 +16,10 @@ namespace FilmplanerSWP
         {
             InitializeComponent();
         }
+
+        private void BenutzerKontrolleLeer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
