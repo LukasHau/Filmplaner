@@ -21,3 +21,4 @@ C:\Users\lukas.hauser\Source\Repos\LukasHau\Filmplaner\FilmplanerSWP\obj\Debug\F
 C:\Users\lukas.hauser\Source\Repos\LukasHau\Filmplaner\FilmplanerSWP\obj\Debug\FilmplanerSWP.csproj.CoreCompileInputs.cache
 C:\Users\lukas.hauser\Source\Repos\LukasHau\Filmplaner\FilmplanerSWP\obj\Debug\FilmplanerSWP.exe
 C:\Users\lukas.hauser\Source\Repos\LukasHau\Filmplaner\FilmplanerSWP\obj\Debug\FilmplanerSWP.pdb
+C:\Users\lukas.hauser\Source\Repos\LukasHau\Filmplaner\FilmplanerSWP\obj\Debug\FilmplanerSWP.Mitarbeiter.resources

@@ -21,8 +21,7 @@ namespace FilmplanerSWP
         public static SqlCommandBuilder CommandBuilder = new SqlCommandBuilder(adp);
         public static bool errormessage;
         public static string choosen_username;
-        public static List<int> IDSelectEquipment = new List<int>();
-        public static string NameSelectEquipment;
+
 
         #region VariablesForEquipmentLoad
         public static string EqipmentName;
@@ -32,6 +31,22 @@ namespace FilmplanerSWP
         public static string EqipmentState;
         public static string EqipmentWarranty;
         public static string EqipmentInfo;
+
+        public static List<int> IDSelectEquipment = new List<int>();
+        public static string NameSelectEquipment;
+        #endregion
+
+        #region VaiablesForStaffLoad
+        public static string StaffName;
+        public static string StaffSurname;
+        public static DateTime StaffAge;
+        public static string StaffAdress;
+        public static string StaffStartingDate;
+        public static string StaffJob;
+        public static string StaffInfo;
+
+        public static List<int> IDSelectStaff = new List<int>();
+        public static string SurnameSelectStaff;
         #endregion
 
         #region Connection
@@ -92,7 +107,7 @@ namespace FilmplanerSWP
 
 
 
-                cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_staff') CREATE TABLE swp4_staff ([Id] INT IDENTITY(1, 1) NOT NULL, [name] VARCHAR(50) NULL, [surname] VARCHAR(50) NULL, [age] INT NULL, [adress] VARCHAR(50) NULL, [starting_date] DATE NULL, [job] VARCHAR(50) NULL, [info] VARCHAR(500) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
+                cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_staff') CREATE TABLE swp4_staff ([Id] INT IDENTITY(1, 1) NOT NULL, [name] VARCHAR(50) NULL, [surname] VARCHAR(50) NULL, [age] DATETIME NULL, [adress] VARCHAR(500) NULL, [starting_date] DATETIME NULL, [job] VARCHAR(50) NULL, [info] VARCHAR(500) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -369,11 +384,95 @@ namespace FilmplanerSWP
             }
         }
         #endregion
-
         #endregion
 
-        #region Workers
 
+
+        #region Workers
+        public static void FillStaff(string name, string surname, DateTime age, string adress, DateTime startingDate, string job, string info)
+        {
+            //checks if all required data is filled
+            if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(surname) || String.IsNullOrEmpty(job))
+            {
+                MessageBox.Show("Bitte füllen Sie alle Felder aus!");
+                errormessage = true;
+            }
+            else
+            {
+                try
+                {
+                    con.Open();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = ("INSERT INTO swp4_staff(name, surname, age, adress, strating_date, job, info) VALUES('" + name + "', '" +
+                        surname + "', '" + age.ToString() + "', '" + adress + "', '" + startingDate.ToString() + "', '" + job + "', '" + info + "');");
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    errormessage = false;
+                    MessageBox.Show(name + " wurde hinzugefügt!");
+                }
+                catch (Exception e)
+                {
+                    con.Close();
+                    MessageBox.Show(e.ToString());
+                }
+            }
+        }
+
+
+
+
+
+        #region GetStaffIndex
+
+        public static List<int> SelectStaffID()
+        {
+            try
+            {
+                IDSelectStaff.Clear();
+                con.Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT ID FROM swp4_staff";
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        int temp = reader.GetInt32(0);
+                        IDSelectStaff.Add(temp);
+                    }
+                }
+                else
+                {
+
+                }
+                con.Close();
+                return IDSelectStaff;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return IDSelectStaff;
+            }
+        }
+
+        public static void SelectStaffSurname(int ID)
+        {
+            try
+            {
+                con.Open();
+                cmd.CommandText = ("SELECT surname FROM swp4_staff where ID = '" + ID + "';");
+                SurnameSelectStaff = (string)cmd.ExecuteScalar();
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                con.Close();
+                MessageBox.Show(e.ToString());
+            }
+        }
+        #endregion
         #endregion
     }
 }
