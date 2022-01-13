@@ -42,7 +42,7 @@ namespace FilmplanerSWP
             tB_name.Text = SQLConnection.EqipmentName;
             cB_description.Text = SQLConnection.EqipmentDescription;
             tB_price.Text = SQLConnection.EqipmentPrice;
-            dTP_installation.Value = SQLConnection.EqipmentInstallation;
+            dTP_installation.Value = Convert.ToDateTime(SQLConnection.EqipmentInstallation);
             cB_state.Text = SQLConnection.EqipmentState;
             tB_warrnaty.Text = SQLConnection.EqipmentWarranty;
             rTB_info.Text = SQLConnection.EqipmentInfo;
@@ -127,7 +127,7 @@ namespace FilmplanerSWP
             tB_name.Text = SQLConnection.EqipmentName;
             cB_description.Text = SQLConnection.EqipmentDescription;
             tB_price.Text = SQLConnection.EqipmentPrice;
-            dTP_installation.Value = SQLConnection.EqipmentInstallation;
+            dTP_installation.Value = Convert.ToDateTime(SQLConnection.EqipmentInstallation);
             cB_state.Text = SQLConnection.EqipmentState;
             tB_warrnaty.Text = SQLConnection.EqipmentWarranty;
             rTB_info.Text = SQLConnection.EqipmentInfo;

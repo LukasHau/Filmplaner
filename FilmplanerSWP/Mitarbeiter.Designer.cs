@@ -61,6 +61,7 @@ namespace FilmplanerSWP
             this.btn_delete.TabIndex = 50;
             this.btn_delete.Text = "Löschen";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // cB_indexStaff
             // 
@@ -97,25 +98,22 @@ namespace FilmplanerSWP
             this.btn_load.TabIndex = 46;
             this.btn_load.Text = "Laden";
             this.btn_load.UseVisualStyleBackColor = true;
+            this.btn_load.Click += new System.EventHandler(this.btn_load_Click);
             // 
             // cB_job
             // 
             this.cB_job.Items.AddRange(new object[] {
-            "Kamera",
-            "Objektiv",
-            "Mikrofon",
-            "SD Karte",
-            "C-Fast Karte",
-            "Licht",
-            "Laptop",
-            "Akku",
-            "Stativ",
-            "Gimbal",
-            "Drohne",
-            "Fernsteuerung",
-            "Ladegerät",
-            "Pelicase",
-            "Zubehör"});
+            "Kameramann",
+            "Cutter",
+            "Sekretariat",
+            "DP",
+            "Regisseur",
+            "Executive Producer",
+            "Produzent",
+            "Drohnenpilot",
+            "SFX",
+            "Sound Design",
+            "Maskenbildner"});
             this.cB_job.Location = new System.Drawing.Point(422, 52);
             this.cB_job.Name = "cB_job";
             this.cB_job.Size = new System.Drawing.Size(200, 21);

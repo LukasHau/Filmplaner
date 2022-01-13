@@ -27,7 +27,7 @@ namespace FilmplanerSWP
         public static string EqipmentName;
         public static string EqipmentDescription;
         public static string EqipmentPrice;
-        public static DateTime EqipmentInstallation;
+        public static string EqipmentInstallation;
         public static string EqipmentState;
         public static string EqipmentWarranty;
         public static string EqipmentInfo;
@@ -39,7 +39,7 @@ namespace FilmplanerSWP
         #region VaiablesForStaffLoad
         public static string StaffName;
         public static string StaffSurname;
-        public static DateTime StaffAge;
+        public static string StaffAge;
         public static string StaffAdress;
         public static string StaffStartingDate;
         public static string StaffJob;
@@ -102,12 +102,12 @@ namespace FilmplanerSWP
 
 
 
-                cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_equipment') CREATE TABLE swp4_equipment ([Id] INT IDENTITY (1, 1) NOT NULL, [name] VARCHAR(50) NULL, [description] VARCHAR(50) NULL, [price] DECIMAL NULL, [installation] DATETIME NULL, [state] VARCHAR(50) NULL, [warranty] INT NULL, [info] VARCHAR(500) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
+                cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_equipment') CREATE TABLE swp4_equipment ([Id] INT IDENTITY (1, 1) NOT NULL, [name] VARCHAR(50) NULL, [description] VARCHAR(50) NULL, [price] DECIMAL NULL, [installation] VARCHAR(50) NULL, [state] VARCHAR(50) NULL, [warranty] INT NULL, [info] VARCHAR(500) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
                 cmd.ExecuteNonQuery();
 
 
 
-                cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_staff') CREATE TABLE swp4_staff ([Id] INT IDENTITY(1, 1) NOT NULL, [name] VARCHAR(50) NULL, [surname] VARCHAR(50) NULL, [age] DATETIME NULL, [adress] VARCHAR(500) NULL, [starting_date] DATETIME NULL, [job] VARCHAR(50) NULL, [info] VARCHAR(500) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
+                cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_staff') CREATE TABLE swp4_staff ([Id] INT IDENTITY(1, 1) NOT NULL, [name] VARCHAR(50) NULL, [surname] VARCHAR(50) NULL, [age] DATETIME NULL, [adress] VARCHAR(500) NULL, [starting_date] VARCHAR(50) NULL, [job] VARCHAR(50) NULL, [info] VARCHAR(500) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -269,7 +269,7 @@ namespace FilmplanerSWP
                 EqipmentPrice = Convert.ToString((decimal)cmd.ExecuteScalar());
 
                 cmd.CommandText = ("SELECT installation FROM swp4_equipment where ID = '" + ID + "';");
-                EqipmentInstallation = (DateTime)cmd.ExecuteScalar();
+                EqipmentInstallation = (string)cmd.ExecuteScalar();
 
                 cmd.CommandText = ("SELECT state FROM swp4_equipment where ID = '" + ID + "';");
                 EqipmentState = (string)cmd.ExecuteScalar();
@@ -386,8 +386,6 @@ namespace FilmplanerSWP
         #endregion
         #endregion
 
-
-
         #region Workers
         public static void FillStaff(string name, string surname, DateTime age, string adress, DateTime startingDate, string job, string info)
         {
@@ -403,7 +401,7 @@ namespace FilmplanerSWP
                 {
                     con.Open();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = ("INSERT INTO swp4_staff(name, surname, age, adress, strating_date, job, info) VALUES('" + name + "', '" +
+                    cmd.CommandText = ("INSERT INTO swp4_staff(name, surname, age, adress, starting_date, job, info) VALUES('" + name + "', '" +
                         surname + "', '" + age.ToString() + "', '" + adress + "', '" + startingDate.ToString() + "', '" + job + "', '" + info + "');");
                     cmd.ExecuteNonQuery();
                     con.Close();
@@ -419,9 +417,86 @@ namespace FilmplanerSWP
             }
         }
 
+        public static void LoadStaff(int ID)
+        {
+            try
+            {
+                con.Open();
+                cmd.CommandText = ("SELECT name FROM swp4_staff where ID = '" + ID + "';");
+                StaffName = (string)cmd.ExecuteScalar();
 
+                cmd.CommandText = ("SELECT surname FROM swp4_staff where ID = '" + ID + "';");
+                StaffSurname = (string)cmd.ExecuteScalar();
 
+                cmd.CommandText = ("SELECT age FROM swp4_staff where ID = '" + ID + "';");
+                StaffAge = (string)cmd.ExecuteScalar();
 
+                cmd.CommandText = ("SELECT adress FROM swp4_staff where ID = '" + ID + "';");
+                StaffAdress = (string)cmd.ExecuteScalar();
+
+                cmd.CommandText = ("SELECT starting_date FROM swp4_staff where ID = '" + ID + "';");
+                StaffStartingDate = (string)cmd.ExecuteScalar();
+
+                cmd.CommandText = ("SELECT job FROM swp4_staff where ID = '" + ID + "';");
+                StaffJob = (string)cmd.ExecuteScalar();
+
+                cmd.CommandText = ("SELECT info FROM swp4_staff where ID = '" + ID + "';");
+                StaffInfo = (string)cmd.ExecuteScalar();
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                con.Close();
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public static void ChangeStaff(string name, string surname, DateTime age, string adress, DateTime startingDate, string job, string info, int ID)
+        {
+            //checks if all required data is filled
+            if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(surname) || String.IsNullOrEmpty(job))
+            {
+                MessageBox.Show("Bitte füllen Sie alle Felder aus!");
+                errormessage = true;
+            }
+            else
+            {
+                try
+                {
+                    con.Open();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = ("UPDATE swp4_staff set name = '" + name + "', surname = '" + surname + "', age = '" + age.ToString() + "', adress = '" + adress + "', starting_date = '" + startingDate.ToString() + "', info = '" + info + "' where ID = '" + ID + "';");
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    MessageBox.Show(name + " wurde bearbeitet!");
+                }
+                catch (Exception e)
+                {
+                    con.Close();
+                    MessageBox.Show(e.ToString());
+                }
+            }
+        }
+
+        public static void DeleteStaff(int ID)
+        {
+            try
+            {
+                con.Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = ("DELETE FROM swp4_staff WHERE ID = '" + ID + "';");
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                MessageBox.Show(StaffName + " wurde gelöscht!");
+            }
+            catch (Exception e)
+            {
+                con.Close();
+                MessageBox.Show(e.ToString());
+            }
+        }
 
         #region GetStaffIndex
 
