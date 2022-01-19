@@ -24,6 +24,7 @@ namespace FilmplanerSWP
 
         private void Main_Load(object sender, EventArgs e)
         {
+            //endables and disables the buttons for individual users
             try
             {
                 if (Login.userrole == "none")

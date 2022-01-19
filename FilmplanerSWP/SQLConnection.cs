@@ -107,7 +107,7 @@ namespace FilmplanerSWP
 
 
 
-                cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_staff') CREATE TABLE swp4_staff ([Id] INT IDENTITY(1, 1) NOT NULL, [name] VARCHAR(50) NULL, [surname] VARCHAR(50) NULL, [age] DATETIME NULL, [adress] VARCHAR(500) NULL, [starting_date] VARCHAR(50) NULL, [job] VARCHAR(50) NULL, [info] VARCHAR(500) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
+                cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_staff') CREATE TABLE swp4_staff ([Id] INT IDENTITY(1, 1) NOT NULL, [name] VARCHAR(50) NULL, [surname] VARCHAR(50) NULL, [age] VARCHAR(50) NULL, [adress] VARCHAR(500) NULL, [starting_date] VARCHAR(50) NULL, [job] VARCHAR(50) NULL, [info] VARCHAR(500) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -386,7 +386,7 @@ namespace FilmplanerSWP
         #endregion
         #endregion
 
-        #region Workers
+        #region WORKERS
         public static void FillStaff(string name, string surname, DateTime age, string adress, DateTime startingDate, string job, string info)
         {
             //checks if all required data is filled

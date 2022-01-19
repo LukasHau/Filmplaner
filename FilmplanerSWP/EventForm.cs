@@ -25,7 +25,7 @@ namespace FilmplanerSWP
 
         }
 
-        private void btn_save_Click(object sender, EventArgs e)
+        private void btn_save_Click(object sender, EventArgs e) //work in progress sql connection
         {
             //MySqlConnection conn = new MySqlconnection(connString);
             //conn.Open();

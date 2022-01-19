@@ -40,6 +40,7 @@ namespace FilmplanerSWP
             this.lbl_donnerstag = new System.Windows.Forms.Label();
             this.lbl_samstag = new System.Windows.Forms.Label();
             this.lbl_datum = new System.Windows.Forms.Label();
+            this.btn_back = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // flp_daycontainer
@@ -149,11 +150,22 @@ namespace FilmplanerSWP
             this.lbl_datum.Text = "MONTH YEAR";
             this.lbl_datum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btn_back
+            // 
+            this.btn_back.Location = new System.Drawing.Point(563, 618);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(75, 23);
+            this.btn_back.TabIndex = 10;
+            this.btn_back.Text = "Zurück";
+            this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            // 
             // Kalender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 653);
+            this.Controls.Add(this.btn_back);
             this.Controls.Add(this.lbl_datum);
             this.Controls.Add(this.lbl_samstag);
             this.Controls.Add(this.lbl_freitag);
@@ -188,5 +200,6 @@ namespace FilmplanerSWP
         private System.Windows.Forms.Label lbl_donnerstag;
         private System.Windows.Forms.Label lbl_samstag;
         private System.Windows.Forms.Label lbl_datum;
+        private System.Windows.Forms.Button btn_back;
     }
 }

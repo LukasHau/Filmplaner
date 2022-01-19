@@ -49,6 +49,7 @@ namespace FilmplanerSWP
 
         private void btn_save_Click(object sender, EventArgs e)
         {
+            //saves the current changes
             SQLConnection.ChangeStaff(tB_name.Text, tB_surname.Text, dTP_age.Value, tB_adress.Text, dTP_StartingDate.Value, cB_job.Text, rTB_info.Text, ID);
 
             SQLConnection.LoadStaff(ID);
@@ -64,6 +65,7 @@ namespace FilmplanerSWP
 
         private void btn_add_Click(object sender, EventArgs e)
         {
+            //adds a staff member
             SQLConnection.errormessage = true;
 
             try
@@ -91,6 +93,7 @@ namespace FilmplanerSWP
 
         private void cB_addWorker_CheckedChanged(object sender, EventArgs e)
         {
+            //endable and disable buttons
             btn_add.Enabled = true;
             btn_save.Enabled = false;
 
@@ -114,6 +117,7 @@ namespace FilmplanerSWP
 
         private void btn_load_Click(object sender, EventArgs e)
         {
+            //for the dropdown, inserts all objects to the list
             ID = Convert.ToInt32(cB_indexStaff.SelectedItem.ToString().Substring(0, 2));
             SQLConnection.LoadStaff(ID);
 
@@ -128,6 +132,7 @@ namespace FilmplanerSWP
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
+            //delete a staff member
             ID = Convert.ToInt32(cB_indexStaff.SelectedItem.ToString().Substring(0, 2));
             SQLConnection.LoadStaff(ID);
 

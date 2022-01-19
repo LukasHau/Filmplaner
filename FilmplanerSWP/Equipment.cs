@@ -35,6 +35,7 @@ namespace FilmplanerSWP
 
         private void btn_save_Click(object sender, EventArgs e)
         {
+            //saves the current changes
             SQLConnection.ChangeEqipment(tB_name.Text, cB_description.Text, Convert.ToDecimal(tB_price.Text), dTP_installation.Value.Date, cB_state.Text, Convert.ToInt32(tB_warrnaty.Text), rTB_info.Text, ID);
 
             SQLConnection.LoadEqipment(ID);
@@ -58,6 +59,7 @@ namespace FilmplanerSWP
 
         private void cB_addEquipment_CheckedChanged(object sender, EventArgs e)
         {
+            //endable and disable buttons
             btn_add.Enabled = true;
             btn_save.Enabled = false;
 
@@ -81,6 +83,7 @@ namespace FilmplanerSWP
 
         private void btn_add_Click(object sender, EventArgs e)
         {
+            //adds a equipment
             SQLConnection.errormessage = true;
 
             try
@@ -121,6 +124,7 @@ namespace FilmplanerSWP
 
         private void btn_load_Click(object sender, EventArgs e)
         {
+            //for the dropdown, inserts all objects to the list
             ID = Convert.ToInt32(cB_indexEquipment.SelectedItem.ToString().Substring(0, 2));
             SQLConnection.LoadEqipment(ID);
 
@@ -136,6 +140,7 @@ namespace FilmplanerSWP
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
+            //delete a equipment
             ID = Convert.ToInt32(cB_indexEquipment.SelectedItem.ToString().Substring(0, 2));
             SQLConnection.LoadEqipment(ID);
 

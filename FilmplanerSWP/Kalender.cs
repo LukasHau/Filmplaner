@@ -25,8 +25,9 @@ namespace FilmplanerSWP
         {
             displayDays();
         }
-
-        private void displayDays()
+        
+       
+        private void displayDays() //shows the single days of the month and adds it to the canvas, it gets the information for the boxes form "BenuterKontrolleLeer" and "BenutzerKontrolleTag"
         {
             DateTime now = DateTime.Now;
             month = now.Month;
@@ -45,13 +46,13 @@ namespace FilmplanerSWP
             int dayoftheweek = Convert.ToInt32(startofthemonth.DayOfWeek.ToString("d")) + 1;
 
 
-            for(int i=1; i < dayoftheweek; i++)
+            for(int i=1; i < dayoftheweek; i++) //adds the blank canvace for the days
             {
                 BenutzerKontrolleLeer ucblank = new BenutzerKontrolleLeer();
                 flp_daycontainer.Controls.Add(ucblank);
             }
 
-            for(int i = 1; i<=days; i++)
+            for(int i = 1; i<=days; i++) //adds the days 
             {
                 BenutzerKontrolleTage ucdays = new BenutzerKontrolleTage();
                 ucdays.days(i);
@@ -59,7 +60,14 @@ namespace FilmplanerSWP
             }
         }
 
-        private void btn_Vorheriges_Click(object sender, EventArgs e)
+        private void btn_back_Click(object sender, EventArgs e)//puts you back to the overview form
+        {
+            Main temp = new Main();
+            this.Close();
+            temp.Show();
+        }
+
+        private void btn_Vorheriges_Click(object sender, EventArgs e)//jumps one month back and resets all the days and adapts to the month selected 
         {
             flp_daycontainer.Controls.Clear();
 
@@ -90,7 +98,7 @@ namespace FilmplanerSWP
             }
         }
 
-        private void btn_Nächstes_Click(object sender, EventArgs e)
+        private void btn_Nächstes_Click(object sender, EventArgs e)//jumps one month forward and resets all the days and adapts to the month selected 
         {
             flp_daycontainer.Controls.Clear();
 

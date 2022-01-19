@@ -42,7 +42,7 @@ namespace FilmplanerSWP
         private void Login_Load(object sender, EventArgs e)
         {
             SQLConnection.TryConnectTODB();
-
+            //hides the Password
             tB_login_password.PasswordChar = '*';
         }
 
