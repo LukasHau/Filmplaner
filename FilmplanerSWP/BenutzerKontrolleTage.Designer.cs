@@ -29,7 +29,10 @@ namespace FilmplanerSWP
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbl_days = new System.Windows.Forms.Label();
+            this.lbl_event = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lbl_days
@@ -42,15 +45,29 @@ namespace FilmplanerSWP
             this.lbl_days.TabIndex = 0;
             this.lbl_days.Text = "00";
             // 
+            // lbl_event
+            // 
+            this.lbl_event.Location = new System.Drawing.Point(3, 52);
+            this.lbl_event.Name = "lbl_event";
+            this.lbl_event.Size = new System.Drawing.Size(101, 34);
+            this.lbl_event.TabIndex = 1;
+            this.lbl_event.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // BenutzerKontrolleTage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lbl_event);
             this.Controls.Add(this.lbl_days);
             this.Name = "BenutzerKontrolleTage";
             this.Size = new System.Drawing.Size(107, 86);
             this.Load += new System.EventHandler(this.BenutzerKontrolleTage_Load);
+            this.Click += new System.EventHandler(this.BenutzerKontrolleTage_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -59,5 +76,7 @@ namespace FilmplanerSWP
         #endregion
 
         private System.Windows.Forms.Label lbl_days;
+        private System.Windows.Forms.Label lbl_event;
+        private System.Windows.Forms.Timer timer1;
     }
 }

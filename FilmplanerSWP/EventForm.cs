@@ -22,7 +22,7 @@ namespace FilmplanerSWP
 
         private void EventForm_Load(object sender, EventArgs e)
         {
-
+            txtb_date.Text =BenutzerKontrolleTage.static_day + "/" + Kalender.static_month + "/" + Kalender.static_year;
         }
 
         private void btn_save_Click(object sender, EventArgs e) //work in progress sql connection
@@ -39,6 +39,13 @@ namespace FilmplanerSWP
             //cmd.Dispose();
             //conn.Close();
 
+
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
 
         }
     }
