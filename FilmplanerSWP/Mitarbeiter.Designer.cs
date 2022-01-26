@@ -29,6 +29,7 @@ namespace FilmplanerSWP
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mitarbeiter));
             this.btn_delete = new System.Windows.Forms.Button();
             this.cB_indexStaff = new System.Windows.Forms.ComboBox();
             this.lbl_index = new System.Windows.Forms.Label();
@@ -55,10 +56,11 @@ namespace FilmplanerSWP
             // 
             // btn_delete
             // 
+            this.btn_delete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_delete.BackgroundImage")));
             this.btn_delete.Location = new System.Drawing.Point(533, 286);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(94, 45);
-            this.btn_delete.TabIndex = 50;
+            this.btn_delete.TabIndex = 13;
             this.btn_delete.Text = "Löschen";
             this.btn_delete.UseVisualStyleBackColor = true;
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
@@ -69,7 +71,7 @@ namespace FilmplanerSWP
             this.cB_indexStaff.Location = new System.Drawing.Point(422, 10);
             this.cB_indexStaff.Name = "cB_indexStaff";
             this.cB_indexStaff.Size = new System.Drawing.Size(200, 21);
-            this.cB_indexStaff.TabIndex = 49;
+            this.cB_indexStaff.TabIndex = 7;
             // 
             // lbl_index
             // 
@@ -82,20 +84,22 @@ namespace FilmplanerSWP
             // 
             // btn_add
             // 
+            this.btn_add.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_add.BackgroundImage")));
             this.btn_add.Location = new System.Drawing.Point(233, 286);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(94, 45);
-            this.btn_add.TabIndex = 47;
+            this.btn_add.TabIndex = 10;
             this.btn_add.Text = "Hinzufügen";
             this.btn_add.UseVisualStyleBackColor = true;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_load
             // 
+            this.btn_load.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_load.BackgroundImage")));
             this.btn_load.Location = new System.Drawing.Point(333, 286);
             this.btn_load.Name = "btn_load";
             this.btn_load.Size = new System.Drawing.Size(94, 45);
-            this.btn_load.TabIndex = 46;
+            this.btn_load.TabIndex = 11;
             this.btn_load.Text = "Laden";
             this.btn_load.UseVisualStyleBackColor = true;
             this.btn_load.Click += new System.EventHandler(this.btn_load_Click);
@@ -117,14 +121,14 @@ namespace FilmplanerSWP
             this.cB_job.Location = new System.Drawing.Point(422, 52);
             this.cB_job.Name = "cB_job";
             this.cB_job.Size = new System.Drawing.Size(200, 21);
-            this.cB_job.TabIndex = 44;
+            this.cB_job.TabIndex = 8;
             // 
             // rTB_info
             // 
             this.rTB_info.Location = new System.Drawing.Point(422, 95);
             this.rTB_info.Name = "rTB_info";
             this.rTB_info.Size = new System.Drawing.Size(200, 141);
-            this.rTB_info.TabIndex = 43;
+            this.rTB_info.TabIndex = 9;
             this.rTB_info.Text = "";
             // 
             // tB_name
@@ -132,21 +136,21 @@ namespace FilmplanerSWP
             this.tB_name.Location = new System.Drawing.Point(107, 52);
             this.tB_name.Name = "tB_name";
             this.tB_name.Size = new System.Drawing.Size(200, 20);
-            this.tB_name.TabIndex = 42;
+            this.tB_name.TabIndex = 2;
             // 
             // tB_surname
             // 
             this.tB_surname.Location = new System.Drawing.Point(107, 95);
             this.tB_surname.Name = "tB_surname";
             this.tB_surname.Size = new System.Drawing.Size(200, 20);
-            this.tB_surname.TabIndex = 41;
+            this.tB_surname.TabIndex = 3;
             // 
             // dTP_StartingDate
             // 
             this.dTP_StartingDate.Location = new System.Drawing.Point(107, 210);
             this.dTP_StartingDate.Name = "dTP_StartingDate";
             this.dTP_StartingDate.Size = new System.Drawing.Size(200, 20);
-            this.dTP_StartingDate.TabIndex = 40;
+            this.dTP_StartingDate.TabIndex = 6;
             // 
             // label7
             // 
@@ -208,27 +212,29 @@ namespace FilmplanerSWP
             this.cB_addStaff.Location = new System.Drawing.Point(12, 12);
             this.cB_addStaff.Name = "cB_addStaff";
             this.cB_addStaff.Size = new System.Drawing.Size(130, 17);
-            this.cB_addStaff.TabIndex = 31;
+            this.cB_addStaff.TabIndex = 1;
             this.cB_addStaff.Text = "Mitarbeiter hinzufügen";
             this.cB_addStaff.UseVisualStyleBackColor = true;
             this.cB_addStaff.CheckedChanged += new System.EventHandler(this.cB_addWorker_CheckedChanged);
             // 
             // btn_back
             // 
+            this.btn_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_back.BackgroundImage")));
             this.btn_back.Location = new System.Drawing.Point(12, 286);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(189, 45);
-            this.btn_back.TabIndex = 30;
+            this.btn_back.TabIndex = 14;
             this.btn_back.Text = "Zurück";
             this.btn_back.UseVisualStyleBackColor = true;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // btn_save
             // 
+            this.btn_save.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_save.BackgroundImage")));
             this.btn_save.Location = new System.Drawing.Point(433, 286);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(94, 45);
-            this.btn_save.TabIndex = 29;
+            this.btn_save.TabIndex = 12;
             this.btn_save.Text = "Speichern";
             this.btn_save.UseVisualStyleBackColor = true;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
@@ -238,7 +244,7 @@ namespace FilmplanerSWP
             this.dTP_age.Location = new System.Drawing.Point(107, 131);
             this.dTP_age.Name = "dTP_age";
             this.dTP_age.Size = new System.Drawing.Size(200, 20);
-            this.dTP_age.TabIndex = 51;
+            this.dTP_age.TabIndex = 4;
             // 
             // label3
             // 
@@ -254,12 +260,13 @@ namespace FilmplanerSWP
             this.tB_adress.Location = new System.Drawing.Point(107, 173);
             this.tB_adress.Name = "tB_adress";
             this.tB_adress.Size = new System.Drawing.Size(200, 20);
-            this.tB_adress.TabIndex = 53;
+            this.tB_adress.TabIndex = 5;
             // 
             // Mitarbeiter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(637, 341);
             this.Controls.Add(this.tB_adress);
             this.Controls.Add(this.label3);
@@ -283,6 +290,9 @@ namespace FilmplanerSWP
             this.Controls.Add(this.cB_addStaff);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.btn_save);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Mitarbeiter";
             this.Text = "Mitarbeiter";
             this.Load += new System.EventHandler(this.Mitarbeiter_Load);

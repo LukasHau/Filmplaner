@@ -44,6 +44,7 @@ namespace FilmplanerSWP
             this.lbl_days.Size = new System.Drawing.Size(23, 19);
             this.lbl_days.TabIndex = 0;
             this.lbl_days.Text = "00";
+            this.lbl_days.Click += new System.EventHandler(this.lbl_days_Click);
             // 
             // lbl_event
             // 
@@ -52,6 +53,7 @@ namespace FilmplanerSWP
             this.lbl_event.Size = new System.Drawing.Size(101, 34);
             this.lbl_event.TabIndex = 1;
             this.lbl_event.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_event.Click += new System.EventHandler(this.lbl_event_Click);
             // 
             // timer1
             // 

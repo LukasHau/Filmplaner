@@ -59,5 +59,18 @@ namespace FilmplanerSWP
         {
             displayEvent();
         }
+
+        private void lbl_event_Click(object sender, EventArgs e)
+        {
+            static_day = lbl_days.Text;
+            timer1.Start();
+            EventForm eventform = new EventForm();
+            eventform.Show();
+        }
+
+        private void lbl_days_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

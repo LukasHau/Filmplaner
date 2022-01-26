@@ -29,6 +29,7 @@ namespace FilmplanerSWP
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Kalender));
             this.flp_daycontainer = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_Vorheriges = new System.Windows.Forms.Button();
             this.btn_Nächstes = new System.Windows.Forms.Button();
@@ -52,9 +53,11 @@ namespace FilmplanerSWP
             // 
             // btn_Vorheriges
             // 
-            this.btn_Vorheriges.Location = new System.Drawing.Point(644, 617);
+            this.btn_Vorheriges.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Vorheriges.BackgroundImage")));
+            this.btn_Vorheriges.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Vorheriges.Location = new System.Drawing.Point(649, 616);
             this.btn_Vorheriges.Name = "btn_Vorheriges";
-            this.btn_Vorheriges.Size = new System.Drawing.Size(75, 23);
+            this.btn_Vorheriges.Size = new System.Drawing.Size(75, 25);
             this.btn_Vorheriges.TabIndex = 0;
             this.btn_Vorheriges.Text = "Vorheriges";
             this.btn_Vorheriges.UseVisualStyleBackColor = true;
@@ -62,9 +65,11 @@ namespace FilmplanerSWP
             // 
             // btn_Nächstes
             // 
-            this.btn_Nächstes.Location = new System.Drawing.Point(725, 617);
+            this.btn_Nächstes.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Nächstes.BackgroundImage")));
+            this.btn_Nächstes.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Nächstes.Location = new System.Drawing.Point(730, 616);
             this.btn_Nächstes.Name = "btn_Nächstes";
-            this.btn_Nächstes.Size = new System.Drawing.Size(75, 23);
+            this.btn_Nächstes.Size = new System.Drawing.Size(75, 25);
             this.btn_Nächstes.TabIndex = 1;
             this.btn_Nächstes.Text = "Nächstes";
             this.btn_Nächstes.UseVisualStyleBackColor = true;
@@ -152,9 +157,11 @@ namespace FilmplanerSWP
             // 
             // btn_back
             // 
-            this.btn_back.Location = new System.Drawing.Point(563, 618);
+            this.btn_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_back.BackgroundImage")));
+            this.btn_back.Font = new System.Drawing.Font("Bahnschrift Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_back.Location = new System.Drawing.Point(12, 616);
             this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(75, 23);
+            this.btn_back.Size = new System.Drawing.Size(75, 25);
             this.btn_back.TabIndex = 10;
             this.btn_back.Text = "Zurück";
             this.btn_back.UseVisualStyleBackColor = true;
@@ -178,7 +185,12 @@ namespace FilmplanerSWP
             this.Controls.Add(this.btn_Vorheriges);
             this.Controls.Add(this.flp_daycontainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.HelpButton = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Kalender";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kalender";
             this.Load += new System.EventHandler(this.Kalender_Load);

@@ -29,6 +29,7 @@ namespace FilmplanerSWP
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.tB_login_name = new System.Windows.Forms.TextBox();
             this.tB_login_password = new System.Windows.Forms.TextBox();
             this.cB_passwordChar = new System.Windows.Forms.CheckBox();
@@ -46,7 +47,7 @@ namespace FilmplanerSWP
             this.tB_login_name.Multiline = true;
             this.tB_login_name.Name = "tB_login_name";
             this.tB_login_name.Size = new System.Drawing.Size(422, 41);
-            this.tB_login_name.TabIndex = 0;
+            this.tB_login_name.TabIndex = 1;
             // 
             // tB_login_password
             // 
@@ -56,7 +57,7 @@ namespace FilmplanerSWP
             this.tB_login_password.Multiline = true;
             this.tB_login_password.Name = "tB_login_password";
             this.tB_login_password.Size = new System.Drawing.Size(422, 41);
-            this.tB_login_password.TabIndex = 1;
+            this.tB_login_password.TabIndex = 2;
             // 
             // cB_passwordChar
             // 
@@ -101,10 +102,10 @@ namespace FilmplanerSWP
             this.Controls.Add(this.tB_login_password);
             this.Controls.Add(this.tB_login_name);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
-            this.ShowIcon = false;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pB_Login)).EndInit();

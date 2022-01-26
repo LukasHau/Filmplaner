@@ -23,6 +23,16 @@ namespace FilmplanerSWP
 
         private void Kalender_Load(object sender, EventArgs e)
         {
+            btn_back.FlatStyle = FlatStyle.Flat;
+            btn_back.FlatAppearance.BorderColor = Color.CornflowerBlue;
+
+            btn_Nächstes.FlatStyle = FlatStyle.Flat;
+            btn_Nächstes.FlatAppearance.BorderColor = Color.CornflowerBlue;
+
+            btn_Vorheriges.FlatStyle = FlatStyle.Flat;
+            btn_Vorheriges.FlatAppearance.BorderColor = Color.CornflowerBlue;
+
+
             displayDays();
         }
         
