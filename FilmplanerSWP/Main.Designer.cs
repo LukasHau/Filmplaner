@@ -29,6 +29,7 @@ namespace FilmplanerSWP
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.btn_calender = new System.Windows.Forms.Button();
             this.btn_equipment = new System.Windows.Forms.Button();
             this.btn_administration = new System.Windows.Forms.Button();
@@ -39,7 +40,9 @@ namespace FilmplanerSWP
             // 
             // btn_calender
             // 
-            this.btn_calender.BackColor = System.Drawing.Color.Transparent;
+            this.btn_calender.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_calender.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_calender.BackgroundImage")));
+            this.btn_calender.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_calender.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_calender.Font = new System.Drawing.Font("Lucida Sans", 21.75F);
             this.btn_calender.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -53,6 +56,8 @@ namespace FilmplanerSWP
             // 
             // btn_equipment
             // 
+            this.btn_equipment.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_equipment.BackgroundImage")));
+            this.btn_equipment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_equipment.Font = new System.Drawing.Font("Lucida Sans", 21.75F);
             this.btn_equipment.Location = new System.Drawing.Point(448, 190);
             this.btn_equipment.Name = "btn_equipment";
@@ -64,6 +69,8 @@ namespace FilmplanerSWP
             // 
             // btn_administration
             // 
+            this.btn_administration.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_administration.BackgroundImage")));
+            this.btn_administration.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_administration.Font = new System.Drawing.Font("Lucida Sans", 21.75F);
             this.btn_administration.Location = new System.Drawing.Point(82, 298);
             this.btn_administration.Name = "btn_administration";
@@ -75,6 +82,8 @@ namespace FilmplanerSWP
             // 
             // btn_employee
             // 
+            this.btn_employee.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_employee.BackgroundImage")));
+            this.btn_employee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_employee.Font = new System.Drawing.Font("Lucida Sans", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_employee.Location = new System.Drawing.Point(448, 298);
             this.btn_employee.Name = "btn_employee";
@@ -101,13 +110,13 @@ namespace FilmplanerSWP
             this.BackgroundImage = global::FilmplanerSWP.Properties.Resources.Main2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(880, 589);
-            this.ControlBox = false;
             this.Controls.Add(this.pB_exit);
             this.Controls.Add(this.btn_employee);
             this.Controls.Add(this.btn_administration);
             this.Controls.Add(this.btn_equipment);
             this.Controls.Add(this.btn_calender);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main";

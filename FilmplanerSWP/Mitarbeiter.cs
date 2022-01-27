@@ -20,6 +20,22 @@ namespace FilmplanerSWP
 
         private void Mitarbeiter_Load(object sender, EventArgs e)
         {
+
+            btn_save.FlatStyle = FlatStyle.Flat;
+            btn_save.FlatAppearance.BorderColor = Color.CornflowerBlue;
+
+            btn_load.FlatStyle = FlatStyle.Flat;
+            btn_load.FlatAppearance.BorderColor = Color.CornflowerBlue;
+
+            btn_delete.FlatStyle = FlatStyle.Flat;
+            btn_delete.FlatAppearance.BorderColor = Color.CornflowerBlue;
+
+            btn_add.FlatStyle = FlatStyle.Flat;
+            btn_add.FlatAppearance.BorderColor = Color.CornflowerBlue;
+
+            btn_back.FlatStyle = FlatStyle.Flat;
+            btn_back.FlatAppearance.BorderColor = Color.CornflowerBlue;
+
             btn_add.Enabled = false;
             cB_job.DropDownStyle = ComboBoxStyle.DropDownList;
 

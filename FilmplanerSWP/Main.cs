@@ -24,6 +24,21 @@ namespace FilmplanerSWP
 
         private void Main_Load(object sender, EventArgs e)
         {
+           
+            btn_calender.FlatStyle = FlatStyle.Flat;
+            btn_calender.FlatAppearance.BorderColor = Color.CornflowerBlue;
+
+            btn_equipment.FlatStyle = FlatStyle.Flat;
+            btn_equipment.FlatAppearance.BorderColor = Color.CornflowerBlue;
+
+            btn_employee.FlatStyle = FlatStyle.Flat;
+            btn_employee.FlatAppearance.BorderColor = Color.CornflowerBlue;
+
+            btn_administration.FlatStyle = FlatStyle.Flat;
+            btn_administration.FlatAppearance.BorderColor = Color.CornflowerBlue;
+
+
+
             //endables and disables the buttons for individual users
             try
             {
