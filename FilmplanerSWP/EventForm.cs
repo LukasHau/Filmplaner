@@ -29,6 +29,32 @@ namespace FilmplanerSWP
             btn_save.FlatAppearance.BorderColor = Color.CornflowerBlue;
 
             txtb_date.Text =BenutzerKontrolleTage.static_day + "/" + Kalender.static_month + "/" + Kalender.static_year;
+            
+            int lblH = 45;
+            int lblB = 385;
+
+            foreach (int x in SQLConnection.SelectStaffID())
+            {
+                x.ToString();
+                SQLConnection.SelectStaffSurname(x);
+                SQLConnection.SelectStaffName(x);
+
+                Label l = new Label();
+                CheckBox c = new CheckBox();
+                l.Text = SQLConnection.SurnameSelectStaff + " " + SQLConnection.NameSelectStaff;
+                l.Location = new Point(lblB, lblH);
+                l.Name = "Label" + x;
+                this.Controls.Add(l);
+                System.Diagnostics.Debug.WriteLine(l.Text);
+                
+                c.Name = "CB" + x;
+                c.Location = new Point(lblB + 50, lblH);
+                c.Text = "Test";
+                this.Controls.Add(c);
+
+
+                lblH = lblH + 25;
+            }
         }
 
         private void btn_save_Click(object sender, EventArgs e) //work in progress sql connection

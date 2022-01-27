@@ -160,6 +160,11 @@ namespace FilmplanerSWP
 
             ClearStaff();
         }
+
+        private void cB_indexStaff_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

@@ -72,6 +72,7 @@ namespace FilmplanerSWP
             this.cB_indexStaff.Name = "cB_indexStaff";
             this.cB_indexStaff.Size = new System.Drawing.Size(200, 21);
             this.cB_indexStaff.TabIndex = 7;
+            this.cB_indexStaff.SelectedIndexChanged += new System.EventHandler(this.cB_indexStaff_SelectedIndexChanged);
             // 
             // lbl_index
             // 
