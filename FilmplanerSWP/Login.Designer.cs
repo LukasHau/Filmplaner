@@ -53,11 +53,12 @@ namespace FilmplanerSWP
             // 
             this.tB_login_password.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tB_login_password.Font = new System.Drawing.Font("Lucida Sans", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tB_login_password.Location = new System.Drawing.Point(27, 270);
+            this.tB_login_password.Location = new System.Drawing.Point(27, 269);
             this.tB_login_password.Multiline = true;
             this.tB_login_password.Name = "tB_login_password";
-            this.tB_login_password.Size = new System.Drawing.Size(422, 41);
+            this.tB_login_password.Size = new System.Drawing.Size(422, 43);
             this.tB_login_password.TabIndex = 2;
+            this.tB_login_password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tB_login_password_KeyDown);
             // 
             // cB_passwordChar
             // 

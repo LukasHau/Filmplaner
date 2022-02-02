@@ -66,8 +66,16 @@ namespace FilmplanerSWP
             {
                 BenutzerKontrolleTage ucdays = new BenutzerKontrolleTage();
                 ucdays.days(i);
+                if (i == now.Day)
+                {
+                    ucdays.BackColor = Color.FromArgb(25, Color.Green);
+                }
                 flp_daycontainer.Controls.Add(ucdays);
+                
+
             }
+
+
         }
 
         private void btn_back_Click(object sender, EventArgs e)//puts you back to the overview form
@@ -80,8 +88,21 @@ namespace FilmplanerSWP
         private void btn_Vorheriges_Click(object sender, EventArgs e)//jumps one month back and resets all the days and adapts to the month selected 
         {
             flp_daycontainer.Controls.Clear();
+            DateTime now = DateTime.Now;
 
-            month--;
+            if (month == 1)
+            {
+                year--;
+                month = 12;
+
+            }
+            else
+            {
+                month--;
+
+            }
+
+
             static_month = month;
             static_year = year;
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
@@ -104,6 +125,10 @@ namespace FilmplanerSWP
             {
                 BenutzerKontrolleTage ucdays = new BenutzerKontrolleTage();
                 ucdays.days(i);
+                if (i == now.Day)
+                {
+                    ucdays.BackColor = Color.FromArgb(25, Color.Green);
+                }
                 flp_daycontainer.Controls.Add(ucdays);
             }
         }
@@ -111,8 +136,20 @@ namespace FilmplanerSWP
         private void btn_Nächstes_Click(object sender, EventArgs e)//jumps one month forward and resets all the days and adapts to the month selected 
         {
             flp_daycontainer.Controls.Clear();
+            DateTime now = DateTime.Now;
 
-            month++;
+
+            if (month == 12)
+            {
+                year++;
+                month = 1;
+
+            }
+            else
+            {
+                month++;
+
+            }
             static_month = month;
             static_year = year;
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
@@ -135,6 +172,11 @@ namespace FilmplanerSWP
             {
                 BenutzerKontrolleTage ucdays = new BenutzerKontrolleTage();
                 ucdays.days(i);
+                if (i == now.Day)
+                {
+
+                    ucdays.BackColor = Color.FromArgb(25, Color.Green);
+                }
                 flp_daycontainer.Controls.Add(ucdays);
             }
         }

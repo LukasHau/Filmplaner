@@ -155,7 +155,7 @@ namespace FilmplanerSWP
             // 
             // btn_back
             // 
-            this.btn_back.BackColor = System.Drawing.Color.Transparent;
+            this.btn_back.BackColor = System.Drawing.Color.White;
             this.btn_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_back.BackgroundImage")));
             this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_back.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
