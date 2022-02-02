@@ -157,5 +157,14 @@
   <ItemGroup>
     <None Include="Resources\Main2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Filmplaner logo transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button Hintergrund.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button Hintergrund nur weiß.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

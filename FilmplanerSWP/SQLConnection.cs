@@ -47,6 +47,7 @@ namespace FilmplanerSWP
 
         public static List<int> IDSelectStaff = new List<int>();
         public static string SurnameSelectStaff;
+        public static string NameSelectStaff;
         #endregion
 
         #region Connection
@@ -539,6 +540,22 @@ namespace FilmplanerSWP
                 con.Open();
                 cmd.CommandText = ("SELECT surname FROM swp4_staff where ID = '" + ID + "';");
                 SurnameSelectStaff = (string)cmd.ExecuteScalar();
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                con.Close();
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public static void SelectStaffName(int ID)
+        {
+            try
+            {
+                con.Open();
+                cmd.CommandText = ("SELECT name FROM swp4_staff where ID = '" + ID + "';");
+                NameSelectStaff = (string)cmd.ExecuteScalar();
                 con.Close();
             }
             catch (Exception e)
