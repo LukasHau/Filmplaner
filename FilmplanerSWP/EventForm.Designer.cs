@@ -48,6 +48,7 @@ namespace FilmplanerSWP
             this.txtb_description = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_worker = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -232,12 +233,23 @@ namespace FilmplanerSWP
             this.lbl_worker.TabIndex = 18;
             this.lbl_worker.Text = "Arbeiter:";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(541, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 14);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Equipment:";
+            // 
             // EventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(870, 399);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_worker);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtb_description);
@@ -288,5 +300,6 @@ namespace FilmplanerSWP
         private System.Windows.Forms.TextBox txtb_description;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbl_worker;
+        private System.Windows.Forms.Label label1;
     }
 }

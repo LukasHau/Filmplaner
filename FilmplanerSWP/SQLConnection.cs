@@ -34,6 +34,7 @@ namespace FilmplanerSWP
 
         public static List<int> IDSelectEquipment = new List<int>();
         public static string NameSelectEquipment;
+        public static string DescriptionEquipment;
         #endregion
 
         #region VaiablesForStaffLoad
@@ -377,6 +378,22 @@ namespace FilmplanerSWP
                 cmd.CommandText = ("SELECT name FROM swp4_equipment where ID = '" + ID + "';");
                 NameSelectEquipment = (string)cmd.ExecuteScalar();
                 con.Close();             
+            }
+            catch (Exception e)
+            {
+                con.Close();
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public static void SelectEquipmentDescription(int ID)
+        {
+            try
+            {
+                con.Open();
+                cmd.CommandText = ("SELECT description FROM swp4_equipment where ID = '" + ID + "';");
+                DescriptionEquipment = (string)cmd.ExecuteScalar();
+                con.Close();
             }
             catch (Exception e)
             {

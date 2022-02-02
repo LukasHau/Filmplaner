@@ -31,7 +31,8 @@ namespace FilmplanerSWP
             txtb_date.Text =BenutzerKontrolleTage.static_day + "/" + Kalender.static_month + "/" + Kalender.static_year;
             
             int lblH = 45;
-            int lblB = 385;
+            int lblB = 390;
+
 
             foreach (int x in SQLConnection.SelectStaffID())
             {
@@ -39,25 +40,40 @@ namespace FilmplanerSWP
                 SQLConnection.SelectStaffSurname(x);
                 SQLConnection.SelectStaffName(x);
 
-                Label l = new Label();
                 CheckBox c = new CheckBox();
-                l.Text = SQLConnection.SurnameSelectStaff + " " + SQLConnection.NameSelectStaff;
-                l.Location = new Point(lblB, lblH);
-                l.Name = "Label" + x;
-                this.Controls.Add(l);
-                System.Diagnostics.Debug.WriteLine(l.Text);
-                
-                c.Name = "CB" + x;
-                c.Location = new Point(lblB + 50, lblH);
-                c.Text = "Test";
+                c.Height = 30;
+                c.Text = SQLConnection.SurnameSelectStaff + " " + SQLConnection.NameSelectStaff;
+                c.Name = "CBStaff" + x;               
+                c.Location = new Point(lblB, lblH);
                 this.Controls.Add(c);
 
 
                 lblH = lblH + 25;
             }
+
+            int lblH2 = 45;
+            int lblB2 = 550;
+
+            foreach (int x in SQLConnection.SelectEquipmentID())
+            {
+                x.ToString();
+                SQLConnection.SelectEquipmentName(x);
+                SQLConnection.SelectEquipmentDescription(x);
+
+                CheckBox t = new CheckBox();
+                t.Width = 500;
+                t.Height = 30;
+                t.Text = x + " " + SQLConnection.DescriptionEquipment + " -- " + SQLConnection.NameSelectEquipment;
+                t.Name = "CBEquip" + x;
+                t.Location = new Point(lblB2, lblH2);
+                this.Controls.Add(t);
+
+
+                lblH2 = lblH2 + 25;
+            }
         }
 
-        private void btn_save_Click(object sender, EventArgs e) //work in progress sql connection
+        private void btn_save_Click(object sender, EventArgs e)
         {
             //MySqlConnection conn = new MySqlconnection(connString);
             //conn.Open();
@@ -70,15 +86,11 @@ namespace FilmplanerSWP
             MessageBox.Show("saved");
             //cmd.Dispose();
             //conn.Close();
-
-
         }
 
         private void btn_back_Click(object sender, EventArgs e)
         {
-
             this.Close();
-
         }
     }
 }
