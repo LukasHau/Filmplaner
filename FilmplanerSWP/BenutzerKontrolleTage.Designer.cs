@@ -38,6 +38,7 @@ namespace FilmplanerSWP
             // lbl_days
             // 
             this.lbl_days.AutoSize = true;
+            this.lbl_days.BackColor = System.Drawing.Color.Transparent;
             this.lbl_days.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_days.Location = new System.Drawing.Point(42, 33);
             this.lbl_days.Name = "lbl_days";
@@ -48,6 +49,7 @@ namespace FilmplanerSWP
             // 
             // lbl_event
             // 
+            this.lbl_event.BackColor = System.Drawing.Color.Transparent;
             this.lbl_event.Location = new System.Drawing.Point(3, 52);
             this.lbl_event.Name = "lbl_event";
             this.lbl_event.Size = new System.Drawing.Size(101, 34);

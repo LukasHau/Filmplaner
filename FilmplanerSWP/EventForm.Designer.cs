@@ -63,11 +63,11 @@ namespace FilmplanerSWP
             // txtb_event
             // 
             this.txtb_event.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtb_event.Location = new System.Drawing.Point(12, 129);
+            this.txtb_event.Location = new System.Drawing.Point(12, 264);
             this.txtb_event.Multiline = true;
             this.txtb_event.Name = "txtb_event";
-            this.txtb_event.Size = new System.Drawing.Size(364, 40);
-            this.txtb_event.TabIndex = 3;
+            this.txtb_event.Size = new System.Drawing.Size(367, 47);
+            this.txtb_event.TabIndex = 5;
             // 
             // lbl_date
             // 
@@ -83,7 +83,7 @@ namespace FilmplanerSWP
             // 
             this.lbl_event.AutoSize = true;
             this.lbl_event.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_event.Location = new System.Drawing.Point(12, 113);
+            this.lbl_event.Location = new System.Drawing.Point(9, 113);
             this.lbl_event.Name = "lbl_event";
             this.lbl_event.Size = new System.Drawing.Size(80, 14);
             this.lbl_event.TabIndex = 3;
@@ -95,7 +95,7 @@ namespace FilmplanerSWP
             this.btn_save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btn_save.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_save.ForeColor = System.Drawing.Color.Black;
-            this.btn_save.Location = new System.Drawing.Point(279, 352);
+            this.btn_save.Location = new System.Drawing.Point(282, 392);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(97, 38);
             this.btn_save.TabIndex = 7;
@@ -127,7 +127,7 @@ namespace FilmplanerSWP
             // 
             this.lbl_client.AutoSize = true;
             this.lbl_client.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_client.Location = new System.Drawing.Point(12, 171);
+            this.lbl_client.Location = new System.Drawing.Point(9, 180);
             this.lbl_client.Name = "lbl_client";
             this.lbl_client.Size = new System.Drawing.Size(78, 14);
             this.lbl_client.TabIndex = 7;
@@ -137,7 +137,7 @@ namespace FilmplanerSWP
             // 
             this.lbl_contact_person.AutoSize = true;
             this.lbl_contact_person.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_contact_person.Location = new System.Drawing.Point(12, 230);
+            this.lbl_contact_person.Location = new System.Drawing.Point(12, 247);
             this.lbl_contact_person.Name = "lbl_contact_person";
             this.lbl_contact_person.Size = new System.Drawing.Size(86, 14);
             this.lbl_contact_person.TabIndex = 8;
@@ -147,7 +147,7 @@ namespace FilmplanerSWP
             // 
             this.lbl_description.AutoSize = true;
             this.lbl_description.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_description.Location = new System.Drawing.Point(12, 289);
+            this.lbl_description.Location = new System.Drawing.Point(12, 314);
             this.lbl_description.Name = "lbl_description";
             this.lbl_description.Size = new System.Drawing.Size(83, 14);
             this.lbl_description.TabIndex = 9;
@@ -157,10 +157,10 @@ namespace FilmplanerSWP
             // 
             this.btn_back.BackColor = System.Drawing.Color.White;
             this.btn_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_back.BackgroundImage")));
-            this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btn_back.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_back.ForeColor = System.Drawing.Color.Black;
-            this.btn_back.Location = new System.Drawing.Point(12, 352);
+            this.btn_back.Location = new System.Drawing.Point(12, 392);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(97, 38);
             this.btn_back.TabIndex = 8;
@@ -187,29 +187,29 @@ namespace FilmplanerSWP
             // txtb_client
             // 
             this.txtb_client.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtb_client.Location = new System.Drawing.Point(12, 188);
+            this.txtb_client.Location = new System.Drawing.Point(12, 331);
             this.txtb_client.Multiline = true;
             this.txtb_client.Name = "txtb_client";
-            this.txtb_client.Size = new System.Drawing.Size(364, 40);
-            this.txtb_client.TabIndex = 4;
+            this.txtb_client.Size = new System.Drawing.Size(367, 47);
+            this.txtb_client.TabIndex = 6;
             // 
             // txtb_contact_person
             // 
             this.txtb_contact_person.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtb_contact_person.Location = new System.Drawing.Point(12, 247);
+            this.txtb_contact_person.Location = new System.Drawing.Point(12, 197);
             this.txtb_contact_person.Multiline = true;
             this.txtb_contact_person.Name = "txtb_contact_person";
-            this.txtb_contact_person.Size = new System.Drawing.Size(364, 40);
-            this.txtb_contact_person.TabIndex = 5;
+            this.txtb_contact_person.Size = new System.Drawing.Size(367, 47);
+            this.txtb_contact_person.TabIndex = 4;
             // 
             // txtb_description
             // 
             this.txtb_description.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtb_description.Location = new System.Drawing.Point(12, 306);
+            this.txtb_description.Location = new System.Drawing.Point(12, 130);
             this.txtb_description.Multiline = true;
             this.txtb_description.Name = "txtb_description";
-            this.txtb_description.Size = new System.Drawing.Size(364, 40);
-            this.txtb_description.TabIndex = 6;
+            this.txtb_description.Size = new System.Drawing.Size(367, 47);
+            this.txtb_description.TabIndex = 3;
             // 
             // pictureBox1
             // 
@@ -237,7 +237,7 @@ namespace FilmplanerSWP
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(870, 399);
+            this.ClientSize = new System.Drawing.Size(870, 439);
             this.Controls.Add(this.lbl_worker);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtb_description);

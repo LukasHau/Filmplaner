@@ -66,7 +66,7 @@ namespace FilmplanerSWP
             {
                 BenutzerKontrolleTage ucdays = new BenutzerKontrolleTage();
                 ucdays.days(i);
-                if (i == now.Day)
+                if (i == now.Day && month == now.Month && year == now.Year)
                 {
                     ucdays.BackColor = Color.FromArgb(25, Color.Green);
                 }
@@ -83,6 +83,11 @@ namespace FilmplanerSWP
             Main temp = new Main();
             this.Close();
             temp.Show();
+        }
+
+        private void pb_x_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.Close();
         }
 
         private void btn_Vorheriges_Click(object sender, EventArgs e)//jumps one month back and resets all the days and adapts to the month selected 
@@ -125,7 +130,7 @@ namespace FilmplanerSWP
             {
                 BenutzerKontrolleTage ucdays = new BenutzerKontrolleTage();
                 ucdays.days(i);
-                if (i == now.Day)
+                if (i == now.Day && month == now.Month && year == now.Year)
                 {
                     ucdays.BackColor = Color.FromArgb(25, Color.Green);
                 }
@@ -171,8 +176,9 @@ namespace FilmplanerSWP
             for (int i = 1; i <= days; i++)
             {
                 BenutzerKontrolleTage ucdays = new BenutzerKontrolleTage();
+                
                 ucdays.days(i);
-                if (i == now.Day)
+                if (i == now.Day && month == now.Month && year == now.Year)
                 {
 
                     ucdays.BackColor = Color.FromArgb(25, Color.Green);
