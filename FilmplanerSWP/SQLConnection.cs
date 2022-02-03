@@ -51,6 +51,15 @@ namespace FilmplanerSWP
         public static string NameSelectStaff;
         #endregion
 
+        #region VariablesForEventLoad
+        public static string EventPlace;
+        public static string EventTime;
+        public static string EventeventName;
+        public static string EventClient;
+        public static string EventContactPerson;
+        public static string EventDescription;
+        #endregion
+
         #region Connection
         //sets the conncetion string
         public static void SetConnectionString(string userCon)
@@ -582,6 +591,68 @@ namespace FilmplanerSWP
             }
         }
         #endregion
+        #endregion
+
+        #region Event
+        public static void CreateEvent(string date, string place, string time, string eventName, string client, string contactPerson, string description)
+        {
+            //checks if all required data is filled
+            if (String.IsNullOrEmpty(place) || String.IsNullOrEmpty(time) || String.IsNullOrEmpty(eventName) || String.IsNullOrEmpty(client))
+            {
+                MessageBox.Show("Bitte füllen Sie alle Felder aus!");
+                errormessage = true;
+            }
+            else
+            {
+                try
+                {
+                    con.Open();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = ("INSERT INTO swp4_event(date, place, time, eventName, client, contactPerson, description) VALUES('" + date + "', '" + place + "', '" + time + "', '" + eventName + "', '" + client + "', '" + contactPerson + "', '" + description + "');");
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    errormessage = false;
+                    MessageBox.Show(eventName + " wurde hinzugefügt!");
+                }
+                catch (Exception e)
+                {
+                    con.Close();
+                    MessageBox.Show(e.ToString());
+                }
+            }
+        }
+
+        public static void LoadEvent(string date)
+        {
+            try
+            {
+                con.Open();
+                cmd.CommandText = ("SELECT place FROM swp4_event where date = '" + date + "';");
+                EventPlace = (string)cmd.ExecuteScalar();
+
+                cmd.CommandText = ("SELECT time FROM swp4_event where date = '" + date + "';");
+                EventTime = (string)cmd.ExecuteScalar();
+
+                cmd.CommandText = ("SELECT eventName FROM swp4_event where date = '" + date + "';");
+                EventeventName = (string)cmd.ExecuteScalar();
+
+                cmd.CommandText = ("SELECT client FROM swp4_event where date = '" + date + "';");
+                EventClient = (string)cmd.ExecuteScalar();
+
+                cmd.CommandText = ("SELECT contactPerson FROM swp4_event where date = '" + date + "';");
+                EventContactPerson = (string)cmd.ExecuteScalar();
+
+                cmd.CommandText = ("SELECT description FROM swp4_event where date = '" + date + "';");
+                EventDescription = (string)cmd.ExecuteScalar();
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                con.Close();
+                MessageBox.Show(e.ToString());
+            }
+        }
         #endregion
     }
 }
