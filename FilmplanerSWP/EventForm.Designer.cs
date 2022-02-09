@@ -248,10 +248,8 @@ namespace FilmplanerSWP
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-
-            this.ClientSize = new System.Drawing.Size(870, 399);
+            this.ClientSize = new System.Drawing.Size(870, 439);
             this.Controls.Add(this.label1);
-
             this.Controls.Add(this.lbl_worker);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtb_description);

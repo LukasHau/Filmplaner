@@ -87,8 +87,9 @@ namespace FilmplanerSWP
 
         private void pb_x_MouseClick(object sender, MouseEventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
+
 
         private void btn_Vorheriges_Click(object sender, EventArgs e)//jumps one month back and resets all the days and adapts to the month selected 
         {

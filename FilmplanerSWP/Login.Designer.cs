@@ -36,11 +36,9 @@ namespace FilmplanerSWP
             this.pB_Login = new System.Windows.Forms.PictureBox();
             this.pB_addUser = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pb_x = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pB_Login)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pB_addUser)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_x)).BeginInit();
             this.SuspendLayout();
             // 
             // tB_login_name
@@ -104,21 +102,10 @@ namespace FilmplanerSWP
             this.panel1.Controls.Add(this.cB_passwordChar);
             this.panel1.Controls.Add(this.tB_login_password);
             this.panel1.Controls.Add(this.tB_login_name);
-            this.panel1.Location = new System.Drawing.Point(0, 34);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(471, 572);
             this.panel1.TabIndex = 6;
-            // 
-            // pb_x
-            // 
-            this.pb_x.BackColor = System.Drawing.SystemColors.Control;
-            this.pb_x.BackgroundImage = global::FilmplanerSWP.Properties.Resources.x_button;
-            this.pb_x.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_x.Location = new System.Drawing.Point(442, 12);
-            this.pb_x.Name = "pb_x";
-            this.pb_x.Size = new System.Drawing.Size(18, 16);
-            this.pb_x.TabIndex = 11;
-            this.pb_x.TabStop = false;
             // 
             // Login
             // 
@@ -126,9 +113,7 @@ namespace FilmplanerSWP
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(472, 609);
-            this.ControlBox = false;
-            this.Controls.Add(this.pb_x);
+            this.ClientSize = new System.Drawing.Size(469, 569);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -141,7 +126,6 @@ namespace FilmplanerSWP
             ((System.ComponentModel.ISupportInitialize)(this.pB_addUser)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_x)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -154,6 +138,5 @@ namespace FilmplanerSWP
         private System.Windows.Forms.PictureBox pB_Login;
         private System.Windows.Forms.PictureBox pB_addUser;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pb_x;
     }
 }
