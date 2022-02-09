@@ -31,7 +31,7 @@ namespace FilmplanerSWP
             btn_delete.FlatAppearance.BorderColor = Color.CornflowerBlue;
 
             btn_add.FlatStyle = FlatStyle.Flat;
-            btn_add.FlatAppearance.BorderColor = Color.CornflowerBlue;
+            btn_add.FlatAppearance.BorderColor = Color.Gray;
 
             btn_back.FlatStyle = FlatStyle.Flat;
             btn_back.FlatAppearance.BorderColor = Color.CornflowerBlue;
@@ -116,18 +116,26 @@ namespace FilmplanerSWP
             if (cB_addStaff.Checked)
             {
                 btn_add.Enabled = true;
+                btn_add.FlatAppearance.BorderColor = Color.CornflowerBlue;
                 btn_save.Enabled = false;
+                btn_save.FlatAppearance.BorderColor = Color.Gray;
                 btn_load.Enabled = false;
+                btn_load.FlatAppearance.BorderColor = Color.Gray;
                 cB_indexStaff.Enabled = false;
                 btn_delete.Enabled = false;
+                btn_delete.FlatAppearance.BorderColor = Color.Gray;
             }
             else
             {
                 btn_add.Enabled = false;
+                btn_add.FlatAppearance.BorderColor = Color.Gray;
                 btn_save.Enabled = true;
+                btn_save.FlatAppearance.BorderColor = Color.CornflowerBlue;
                 btn_load.Enabled = true;
+                btn_load.FlatAppearance.BorderColor = Color.CornflowerBlue;
                 cB_indexStaff.Enabled = true;
                 btn_delete.Enabled = true;
+                btn_delete.FlatAppearance.BorderColor = Color.CornflowerBlue;
             }
         }
 

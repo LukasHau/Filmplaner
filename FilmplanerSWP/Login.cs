@@ -34,9 +34,12 @@ namespace FilmplanerSWP
 
                 Main temp = new Main();
                 this.Hide();
+                
                 temp.Show();
             }
-        
+
+            tB_login_password.Text = string.Empty;
+
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -44,6 +47,8 @@ namespace FilmplanerSWP
             SQLConnection.TryConnectTODB();
             //hides the Password
             tB_login_password.PasswordChar = '*';
+
+           
         }
 
 
@@ -66,6 +71,64 @@ namespace FilmplanerSWP
             string password = tB_login_password.Text;
 
             SQLConnection.create_user(username, password);
+        }
+
+        private void tB_login_password_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                string username = tB_login_name.Text;
+                string password = tB_login_password.Text;
+
+                userrole = SQLConnection.checkRole(username);
+
+                //Checks if the username and the password are correct
+                if (SQLConnection.CheckUsername(username, password))
+                {
+                    SQLConnection.choosen_username = username;
+
+                    Main temp = new Main();
+                    this.Hide();
+
+                    temp.Show();
+                }
+
+                tB_login_password.Text = "";
+
+                // these last two lines will stop the beep sound
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
+        }
+
+        private void tB_login_name_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                string username = tB_login_name.Text;
+                string password = tB_login_password.Text;
+
+                userrole = SQLConnection.checkRole(username);
+
+                //Checks if the username and the password are correct
+                if (SQLConnection.CheckUsername(username, password))
+                {
+                    SQLConnection.choosen_username = username;
+
+                    Main temp = new Main();
+                    this.Hide();
+
+                    temp.Show();
+                }
+
+                tB_login_password.Text = "";
+
+                // these last two lines will stop the beep sound
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+            }
         }
     }
 }
