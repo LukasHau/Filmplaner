@@ -14,13 +14,12 @@ namespace FilmplanerSWP
     public partial class EventForm : Form
     {
 
-        //String connString = "server=localhost;user id=root;database=db_xalendar;sslmode=none";
         public EventForm()
         {
             InitializeComponent();
         }
 
-        private void EventForm_Load(object sender, EventArgs e)
+        public void EventForm_Load(object sender, EventArgs e)
         {
             btn_back.FlatStyle = FlatStyle.Flat;
             btn_back.FlatAppearance.BorderColor = Color.CornflowerBlue;
@@ -47,7 +46,6 @@ namespace FilmplanerSWP
                 c.Location = new Point(lblB, lblH);
                 this.Controls.Add(c);
 
-
                 lblH = lblH + 25;
             }
 
@@ -72,6 +70,31 @@ namespace FilmplanerSWP
                 lblH2 = lblH2 + 25;
             }
 
+            UpdateForm();
+        }
+
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            if(SQLConnection.CheckEvent(txtb_date.Text) == true)
+            {
+                SQLConnection.CreateEvent(txtb_date.Text, txtb_location.Text, txtb_time.Text, txtb_event.Text, txtb_client.Text, txtb_contact_person.Text, txtb_description.Text);
+            }
+            else
+            {
+                SQLConnection.ChangeEvent(txtb_date.Text, txtb_location.Text, txtb_time.Text, txtb_event.Text, txtb_client.Text, txtb_contact_person.Text, txtb_description.Text);
+            }
+
+
+            UpdateForm();
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void UpdateForm()
+        {
             SQLConnection.LoadEvent(txtb_date.Text);
 
             txtb_location.Text = SQLConnection.EventPlace;
@@ -80,16 +103,6 @@ namespace FilmplanerSWP
             txtb_client.Text = SQLConnection.EventClient;
             txtb_contact_person.Text = SQLConnection.EventContactPerson;
             txtb_description.Text = SQLConnection.EventDescription;
-        }
-
-        private void btn_save_Click(object sender, EventArgs e)
-        {
-            SQLConnection.CreateEvent(txtb_date.Text, txtb_location.Text, txtb_time.Text, txtb_event.Text, txtb_client.Text, txtb_contact_person.Text, txtb_description.Text);
-        }
-
-        private void btn_back_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

@@ -121,6 +121,8 @@ namespace FilmplanerSWP
                 cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_staff') CREATE TABLE swp4_staff ([Id] INT IDENTITY(1, 1) NOT NULL, [name] VARCHAR(50) NULL, [surname] VARCHAR(50) NULL, [age] VARCHAR(50) NULL, [adress] VARCHAR(500) NULL, [starting_date] VARCHAR(50) NULL, [job] VARCHAR(50) NULL, [info] VARCHAR(500) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
                 cmd.ExecuteNonQuery();
                 con.Close();
+
+                //ToDo: Tabellenerstellung auf alle Tabellen erweitern
             }
             catch (Exception e)
             {
@@ -593,7 +595,25 @@ namespace FilmplanerSWP
         #endregion
         #endregion
 
-        #region Event
+        #region EVENT
+
+        public static bool CheckEvent(string date)
+        {
+            con.Open();
+            cmd.CommandText = ("SELECT Id FROM swp4_event where date = '" + date + "';");
+            string temp = Convert.ToString(cmd.ExecuteScalar());
+            con.Close();
+
+            if (String.IsNullOrEmpty(temp))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public static void CreateEvent(string date, string place, string time, string eventName, string client, string contactPerson, string description)
         {
             //checks if all required data is filled
@@ -651,6 +671,34 @@ namespace FilmplanerSWP
             {
                 con.Close();
                 MessageBox.Show(e.ToString());
+            }
+        }
+
+        public static void ChangeEvent(string date, string place, string time, string eventName, string client, string contactPerson, string description)
+        {
+            //checks if all required data is filled
+            if (String.IsNullOrEmpty(place) || String.IsNullOrEmpty(time) || String.IsNullOrEmpty(eventName) || String.IsNullOrEmpty(client))
+            {
+                MessageBox.Show("Bitte füllen Sie alle Felder aus!");
+                errormessage = true;
+            }
+            else
+            {
+                try
+                {
+                    con.Open();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = ("UPDATE swp4_event set place = '" + place + "', time = '" + time + "', eventName = '" + eventName + "', client = '" + client + "', contactPerson = '" + contactPerson + "', description = '" + description + "' where date = '" + date + "';");
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    MessageBox.Show(eventName + " wurde bearbeitet!");
+                }
+                catch (Exception e)
+                {
+                    con.Close();
+                    MessageBox.Show(e.ToString());
+                }
             }
         }
         #endregion
