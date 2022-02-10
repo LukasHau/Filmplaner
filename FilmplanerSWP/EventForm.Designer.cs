@@ -49,7 +49,9 @@ namespace FilmplanerSWP
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_worker = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pb_x = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_x)).BeginInit();
             this.SuspendLayout();
             // 
             // txtb_date
@@ -243,12 +245,25 @@ namespace FilmplanerSWP
             this.label1.TabIndex = 19;
             this.label1.Text = "Equipment:";
             // 
+            // pb_x
+            // 
+            this.pb_x.BackColor = System.Drawing.SystemColors.Control;
+            this.pb_x.BackgroundImage = global::FilmplanerSWP.Properties.Resources.x_button;
+            this.pb_x.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_x.Location = new System.Drawing.Point(840, 12);
+            this.pb_x.Name = "pb_x";
+            this.pb_x.Size = new System.Drawing.Size(18, 16);
+            this.pb_x.TabIndex = 20;
+            this.pb_x.TabStop = false;
+            this.pb_x.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pb_x_MouseClick);
+            // 
             // EventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(870, 439);
+            this.Controls.Add(this.pb_x);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_worker);
             this.Controls.Add(this.pictureBox1);
@@ -268,6 +283,7 @@ namespace FilmplanerSWP
             this.Controls.Add(this.lbl_date);
             this.Controls.Add(this.txtb_event);
             this.Controls.Add(this.txtb_date);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -275,6 +291,7 @@ namespace FilmplanerSWP
             this.Text = "Event";
             this.Load += new System.EventHandler(this.EventForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_x)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,5 +318,6 @@ namespace FilmplanerSWP
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbl_worker;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pb_x;
     }
 }

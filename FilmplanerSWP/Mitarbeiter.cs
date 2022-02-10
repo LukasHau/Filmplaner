@@ -173,6 +173,16 @@ namespace FilmplanerSWP
         {
 
         }
+
+        private void pb_x_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pb_x_MouseClick(object sender, MouseEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
 

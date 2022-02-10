@@ -116,6 +116,7 @@ namespace FilmplanerSWP
             this.Controls.Add(this.btn_equipment);
             this.Controls.Add(this.btn_calender);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

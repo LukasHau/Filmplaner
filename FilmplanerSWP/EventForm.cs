@@ -104,5 +104,10 @@ namespace FilmplanerSWP
             txtb_contact_person.Text = SQLConnection.EventContactPerson;
             txtb_description.Text = SQLConnection.EventDescription;
         }
+
+        private void pb_x_MouseClick(object sender, MouseEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

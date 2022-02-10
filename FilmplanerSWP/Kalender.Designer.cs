@@ -143,6 +143,7 @@ namespace FilmplanerSWP
             this.pb_x.Size = new System.Drawing.Size(18, 16);
             this.pb_x.TabIndex = 10;
             this.pb_x.TabStop = false;
+            this.pb_x.Click += new System.EventHandler(this.pb_x_Click);
             this.pb_x.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pb_x_MouseClick);
             // 
             // btn_back

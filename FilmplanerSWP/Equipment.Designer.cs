@@ -52,6 +52,8 @@ namespace FilmplanerSWP
             this.lbl_index = new System.Windows.Forms.Label();
             this.cB_indexEquipment = new System.Windows.Forms.ComboBox();
             this.btn_delete = new System.Windows.Forms.Button();
+            this.pb_x = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_x)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_save
@@ -276,12 +278,25 @@ namespace FilmplanerSWP
             this.btn_delete.UseVisualStyleBackColor = true;
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
+            // pb_x
+            // 
+            this.pb_x.BackColor = System.Drawing.SystemColors.Control;
+            this.pb_x.BackgroundImage = global::FilmplanerSWP.Properties.Resources.x_button;
+            this.pb_x.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_x.Location = new System.Drawing.Point(618, 4);
+            this.pb_x.Name = "pb_x";
+            this.pb_x.Size = new System.Drawing.Size(18, 16);
+            this.pb_x.TabIndex = 27;
+            this.pb_x.TabStop = false;
+            this.pb_x.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pb_x_MouseClick);
+            // 
             // Equipment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(644, 359);
+            this.Controls.Add(this.pb_x);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.cB_indexEquipment);
             this.Controls.Add(this.lbl_index);
@@ -304,12 +319,14 @@ namespace FilmplanerSWP
             this.Controls.Add(this.cB_addEquipment);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.btn_save);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Equipment";
             this.Text = "Equipment";
             this.Load += new System.EventHandler(this.Equipment_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_x)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,5 +355,6 @@ namespace FilmplanerSWP
         private System.Windows.Forms.Label lbl_index;
         private System.Windows.Forms.ComboBox cB_indexEquipment;
         private System.Windows.Forms.Button btn_delete;
+        private System.Windows.Forms.PictureBox pb_x;
     }
 }

@@ -176,5 +176,10 @@ namespace FilmplanerSWP
 
             ClearEquipment();
         }
+
+        private void pb_x_MouseClick(object sender, MouseEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -90,6 +90,10 @@ namespace FilmplanerSWP
             Application.Exit();
         }
 
+        private void pb_x_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void btn_Vorheriges_Click(object sender, EventArgs e)//jumps one month back and resets all the days and adapts to the month selected 
         {
