@@ -171,6 +171,7 @@ namespace FilmplanerSWP
             this.btn_Nächstes.Text = "Nächstes";
             this.btn_Nächstes.UseVisualStyleBackColor = true;
             this.btn_Nächstes.Click += new System.EventHandler(this.btn_Nächstes_Click);
+            this.btn_Nächstes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_Nächstes_KeyDown);
             // 
             // btn_Vorheriges
             // 
@@ -212,6 +213,8 @@ namespace FilmplanerSWP
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kalender";
             this.Load += new System.EventHandler(this.Kalender_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Kalender_KeyDown);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Kalender_PreviewKeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pb_x)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

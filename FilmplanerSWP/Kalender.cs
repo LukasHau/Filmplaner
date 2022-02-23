@@ -95,6 +95,24 @@ namespace FilmplanerSWP
 
         }
 
+        private void btn_Nächstes_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void Kalender_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Right)
+            {
+                MessageBox.Show("kekq");
+            }
+        }
+
+        private void Kalender_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+
+        }
+
         private void btn_Vorheriges_Click(object sender, EventArgs e)//jumps one month back and resets all the days and adapts to the month selected 
         {
             flp_daycontainer.Controls.Clear();
@@ -143,6 +161,7 @@ namespace FilmplanerSWP
             }
         }
 
+       
         private void btn_Nächstes_Click(object sender, EventArgs e)//jumps one month forward and resets all the days and adapts to the month selected 
         {
             flp_daycontainer.Controls.Clear();
