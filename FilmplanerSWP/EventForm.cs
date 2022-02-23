@@ -13,7 +13,8 @@ namespace FilmplanerSWP
 {
     public partial class EventForm : Form
     {
-
+        CheckBox t = new CheckBox();
+        CheckBox c = new CheckBox();
         public EventForm()
         {
             InitializeComponent();
@@ -84,6 +85,13 @@ namespace FilmplanerSWP
                 SQLConnection.ChangeEvent(txtb_date.Text, txtb_location.Text, txtb_time.Text, txtb_event.Text, txtb_client.Text, txtb_contact_person.Text, txtb_description.Text);
             }
 
+            foreach(int x in SQLConnection.SelectEquipmentID())
+            {
+                if (t.Checked == true)
+                {
+                    MessageBox.Show("true " + t.Name);
+                }
+            }
 
             UpdateForm();
         }

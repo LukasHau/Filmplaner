@@ -111,18 +111,18 @@ namespace FilmplanerSWP
                 cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_login') CREATE TABLE swp4_login ([Id] INT IDENTITY (1, 1) NOT NULL, [username] VARCHAR(50) NULL,[password] VARCHAR(200) NULL, [role] VARCHAR(50) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
                 cmd.ExecuteNonQuery();
 
-
-
                 cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_equipment') CREATE TABLE swp4_equipment ([Id] INT IDENTITY (1, 1) NOT NULL, [name] VARCHAR(50) NULL, [description] VARCHAR(50) NULL, [price] DECIMAL NULL, [installation] VARCHAR(50) NULL, [state] VARCHAR(50) NULL, [warranty] INT NULL, [info] VARCHAR(500) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
                 cmd.ExecuteNonQuery();
 
-
-
                 cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_staff') CREATE TABLE swp4_staff ([Id] INT IDENTITY(1, 1) NOT NULL, [name] VARCHAR(50) NULL, [surname] VARCHAR(50) NULL, [age] VARCHAR(50) NULL, [adress] VARCHAR(500) NULL, [starting_date] VARCHAR(50) NULL, [job] VARCHAR(50) NULL, [info] VARCHAR(500) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
                 cmd.ExecuteNonQuery();
-                con.Close();
 
-                //ToDo: Tabellenerstellung auf alle Tabellen erweitern
+                cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_event') CREATE TABLE swp4_event ([Id] INT IDENTITY(1, 1) NOT NULL, [date] VARCHAR(50) NOT NULL, [place] VARCHAR(100) NULL, [time] VARCHAR(50) NULL, [eventName] VARCHAR(50) NULL, [client] VARCHAR(50) NULL, [contactPerson] VARCHAR(50) NULL, [description] VARCHAR(500) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
+                cmd.ExecuteNonQuery();
+
+                cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_staffInUse') CREATE TABLE swp4_staffInUse ([Id] INT IDENTITY(1, 1) NOT NULL, [staffID] INT NULL, [date] VARCHAR(50) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
+                cmd.ExecuteNonQuery();
+                con.Close();
             }
             catch (Exception e)
             {
