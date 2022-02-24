@@ -126,7 +126,7 @@ namespace FilmplanerSWP
             // lbl_datum
             // 
             this.lbl_datum.Font = new System.Drawing.Font("Bahnschrift Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_datum.Location = new System.Drawing.Point(275, 9);
+            this.lbl_datum.Location = new System.Drawing.Point(275, 6);
             this.lbl_datum.Name = "lbl_datum";
             this.lbl_datum.Size = new System.Drawing.Size(279, 27);
             this.lbl_datum.TabIndex = 9;

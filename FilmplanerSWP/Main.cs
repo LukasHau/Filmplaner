@@ -37,8 +37,17 @@ namespace FilmplanerSWP
             btn_administration.FlatStyle = FlatStyle.Flat;
             btn_administration.FlatAppearance.BorderColor = Color.CornflowerBlue;
 
+            rolegetter();
 
+        }
 
+        private void btn_administration_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rolegetter()
+        {
             //endables and disables the buttons for individual users
             try
             {
@@ -63,15 +72,10 @@ namespace FilmplanerSWP
                     btn_calender.Enabled = true;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void btn_administration_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btn_calender_Click(object sender, EventArgs e)

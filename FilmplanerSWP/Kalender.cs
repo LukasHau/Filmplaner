@@ -21,7 +21,7 @@ namespace FilmplanerSWP
             InitializeComponent();
         }
 
-        private void Kalender_Load(object sender, EventArgs e)
+        private void Kalender_Load(object sender, EventArgs e) //Changes the colours of the buttons, to mach the whole programm
         {
             btn_back.FlatStyle = FlatStyle.Flat;
             btn_back.FlatAppearance.BorderColor = Color.CornflowerBlue;
@@ -102,19 +102,48 @@ namespace FilmplanerSWP
 
         private void Kalender_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == Keys.Right)
-            {
-                MessageBox.Show("kekq");
-            }
+            
         }
 
         private void Kalender_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
 
         }
+        //private int daylookerd(int days)
+        //{
+        //    static_month = month;
+        //    static_year = year;
+        //    String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
+        //    lbl_datum.Text = monthname + " " + year;
+
+        //    DateTime startofthemonth = new DateTime(year, month, 1);
+
+        //    days = DateTime.DaysInMonth(year, month);
+
+        //   //dayoftheweek = Convert.ToInt32(startofthemonth.DayOfWeek.ToString("d")) + 1;
+
+        //    return days;
+        //}
+
+        //private int daylookerw(int dayoftheweek)
+        //{
+        //    static_month = month;
+        //    static_year = year;
+        //    String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
+        //    lbl_datum.Text = monthname + " " + year;
+
+        //    DateTime startofthemonth = new DateTime(year, month, 1);
+
+        //     //days = DateTime.DaysInMonth(year, month);
+
+        //     dayoftheweek = Convert.ToInt32(startofthemonth.DayOfWeek.ToString("d")) + 1;
+
+        //    return dayoftheweek;
+        //}
 
         private void btn_Vorheriges_Click(object sender, EventArgs e)//jumps one month back and resets all the days and adapts to the month selected 
         {
+            
             flp_daycontainer.Controls.Clear();
             DateTime now = DateTime.Now;
 
@@ -130,6 +159,8 @@ namespace FilmplanerSWP
 
             }
 
+            //daylookerd(days2);
+            //daylookerw(dayoftheweek2);
 
             static_month = month;
             static_year = year;
