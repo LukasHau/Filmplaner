@@ -13,8 +13,7 @@ namespace FilmplanerSWP
 {
     public partial class EventForm : Form
     {
-        CheckBox t = new CheckBox();
-        CheckBox c = new CheckBox();
+
         public EventForm()
         {
             InitializeComponent();
@@ -29,10 +28,6 @@ namespace FilmplanerSWP
             btn_save.FlatAppearance.BorderColor = Color.CornflowerBlue;
 
             txtb_date.Text = BenutzerKontrolleTage.static_day + "/" + Kalender.static_month + "/" + Kalender.static_year;
-            
-            int lblH = 45;
-            int lblB = 390;
-
 
             foreach (int x in SQLConnection.SelectStaffID())
             {
@@ -40,18 +35,8 @@ namespace FilmplanerSWP
                 SQLConnection.SelectStaffSurname(x);
                 SQLConnection.SelectStaffName(x);
 
-                CheckBox c = new CheckBox();
-                c.Height = 30;
-                c.Text = SQLConnection.SurnameSelectStaff + " " + SQLConnection.NameSelectStaff;
-                c.Name = "CBStaff" + x;               
-                c.Location = new Point(lblB, lblH);
-                this.Controls.Add(c);
-
-                lblH = lblH + 25;
+                cLBWork.Items.Add(SQLConnection.SurnameSelectStaff + " " + SQLConnection.NameSelectStaff);
             }
-
-            int lblH2 = 45;
-            int lblB2 = 550;
 
             foreach (int x in SQLConnection.SelectEquipmentID())
             {
@@ -59,16 +44,7 @@ namespace FilmplanerSWP
                 SQLConnection.SelectEquipmentName(x);
                 SQLConnection.SelectEquipmentDescription(x);
 
-                CheckBox t = new CheckBox();
-                t.Width = 500;
-                t.Height = 30;
-                t.Text = x + " " + SQLConnection.DescriptionEquipment + " -- " + SQLConnection.NameSelectEquipment;
-                t.Name = "CBEquip" + x;
-                t.Location = new Point(lblB2, lblH2);
-                this.Controls.Add(t);
-
-
-                lblH2 = lblH2 + 25;
+                cLBEquip.Items.Add(x + " " + SQLConnection.DescriptionEquipment + " -- " + SQLConnection.NameSelectEquipment);
             }
 
             UpdateForm();
@@ -85,13 +61,13 @@ namespace FilmplanerSWP
                 SQLConnection.ChangeEvent(txtb_date.Text, txtb_location.Text, txtb_time.Text, txtb_event.Text, txtb_client.Text, txtb_contact_person.Text, txtb_description.Text);
             }
 
-            foreach(int x in SQLConnection.SelectEquipmentID())
-            {
-                if (t.Checked == true)
-                {
-                    MessageBox.Show("true " + t.Name);
-                }
-            }
+            //foreach (object control in )
+            //{
+            //    if (control.GetType() == typeof(CheckBox))
+            //    {
+            //        MessageBox.Show("true " + t.Name);
+            //    }
+            //}
 
             UpdateForm();
         }

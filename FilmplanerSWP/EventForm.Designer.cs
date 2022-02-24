@@ -49,6 +49,8 @@ namespace FilmplanerSWP
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_worker = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cLBEquip = new System.Windows.Forms.CheckedListBox();
+            this.cLBWork = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -237,11 +239,29 @@ namespace FilmplanerSWP
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(541, 20);
+            this.label1.Location = new System.Drawing.Point(578, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 14);
             this.label1.TabIndex = 19;
             this.label1.Text = "Equipment:";
+            // 
+            // cLBEquip
+            // 
+            this.cLBEquip.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cLBEquip.FormattingEnabled = true;
+            this.cLBEquip.Location = new System.Drawing.Point(581, 46);
+            this.cLBEquip.Name = "cLBEquip";
+            this.cLBEquip.Size = new System.Drawing.Size(255, 300);
+            this.cLBEquip.TabIndex = 20;
+            // 
+            // cLBWork
+            // 
+            this.cLBWork.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cLBWork.FormattingEnabled = true;
+            this.cLBWork.Location = new System.Drawing.Point(388, 46);
+            this.cLBWork.Name = "cLBWork";
+            this.cLBWork.Size = new System.Drawing.Size(187, 345);
+            this.cLBWork.TabIndex = 21;
             // 
             // EventForm
             // 
@@ -249,6 +269,8 @@ namespace FilmplanerSWP
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(870, 439);
+            this.Controls.Add(this.cLBWork);
+            this.Controls.Add(this.cLBEquip);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_worker);
             this.Controls.Add(this.pictureBox1);
@@ -301,5 +323,7 @@ namespace FilmplanerSWP
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbl_worker;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckedListBox cLBEquip;
+        private System.Windows.Forms.CheckedListBox cLBWork;
     }
 }
