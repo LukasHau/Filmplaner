@@ -264,6 +264,7 @@ namespace FilmplanerSWP
             this.cB_indexEquipment.Name = "cB_indexEquipment";
             this.cB_indexEquipment.Size = new System.Drawing.Size(200, 21);
             this.cB_indexEquipment.TabIndex = 7;
+            this.cB_indexEquipment.SelectedIndexChanged += new System.EventHandler(this.cB_indexEquipment_SelectedIndexChanged);
             // 
             // btn_delete
             // 

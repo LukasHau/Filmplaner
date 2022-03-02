@@ -249,19 +249,24 @@ namespace FilmplanerSWP
             // 
             this.cLBEquip.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.cLBEquip.FormattingEnabled = true;
+            this.cLBEquip.HorizontalExtent = 2;
+            this.cLBEquip.HorizontalScrollbar = true;
             this.cLBEquip.Location = new System.Drawing.Point(581, 46);
             this.cLBEquip.Name = "cLBEquip";
-            this.cLBEquip.Size = new System.Drawing.Size(255, 300);
+            this.cLBEquip.Size = new System.Drawing.Size(255, 345);
             this.cLBEquip.TabIndex = 20;
             // 
             // cLBWork
             // 
             this.cLBWork.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.cLBWork.FormattingEnabled = true;
+            this.cLBWork.HorizontalExtent = 2;
+            this.cLBWork.HorizontalScrollbar = true;
             this.cLBWork.Location = new System.Drawing.Point(388, 46);
             this.cLBWork.Name = "cLBWork";
             this.cLBWork.Size = new System.Drawing.Size(187, 345);
             this.cLBWork.TabIndex = 21;
+            this.cLBWork.SelectedIndexChanged += new System.EventHandler(this.cLBWork_SelectedIndexChanged);
             // 
             // EventForm
             // 

@@ -176,5 +176,10 @@ namespace FilmplanerSWP
 
             ClearEquipment();
         }
+
+        private void cB_indexEquipment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

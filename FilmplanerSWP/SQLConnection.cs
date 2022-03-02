@@ -87,7 +87,7 @@ namespace FilmplanerSWP
 
             catch (Exception e)
             {
-                MessageBox.Show("Test at TryConnection\n"+e.Message);
+                MessageBox.Show("Test at TryConnection\n" + e.Message);
                 return false;
             }
         }
@@ -294,10 +294,10 @@ namespace FilmplanerSWP
                 EqipmentInfo = (string)cmd.ExecuteScalar();
                 con.Close();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 con.Close();
-                MessageBox.Show(e.ToString());               
+                MessageBox.Show(e.ToString());
             }
         }
 
@@ -369,7 +369,7 @@ namespace FilmplanerSWP
                 }
                 else
                 {
-                    
+
                 }
                 con.Close();
                 return IDSelectEquipment;
@@ -388,7 +388,7 @@ namespace FilmplanerSWP
                 con.Open();
                 cmd.CommandText = ("SELECT name FROM swp4_equipment where ID = '" + ID + "';");
                 NameSelectEquipment = (string)cmd.ExecuteScalar();
-                con.Close();             
+                con.Close();
             }
             catch (Exception e)
             {
@@ -701,6 +701,103 @@ namespace FilmplanerSWP
                 }
             }
         }
+
+        #region StaffInUse
+        public static void AddStaffInUse(int staffID, string date)
+        {
+            try
+            {
+                con.Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = ("INSERT INTO swp4_staffInUse(staffID, date) VALUES('" + staffID + "', '" + date + "');");
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                con.Close();
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public static List<int> IDLoadStaffInUse = new List<int>();
+        public static List<int> LoadStaffInUse(string date)
+        {
+            try
+            {
+                IDLoadStaffInUse.Clear();
+                con.Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT staffID FROM swp4_staffInUse where date = '" + date + "'";
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        int temp = reader.GetInt32(0);
+                        IDLoadStaffInUse.Add(temp);
+                    }
+                }
+                con.Close();
+                return IDLoadStaffInUse;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return IDLoadStaffInUse;
+            }
+        }
+        #endregion
+
+        #region EquipmentInUse
+        public static void AddEquipInUse(int equipID, string date)
+        {
+            try
+            {
+                con.Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = ("INSERT INTO swp4_equipInUse(equipID, date) VALUES('" + equipID + "', '" + date + "');");
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                con.Close();
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public static List<int> IDLoadEquipInUse = new List<int>();
+        public static List<int> LoadEquipInUse(string date)
+        {
+            try
+            {
+                IDLoadEquipInUse.Clear();
+                con.Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT equipID FROM swp4_equipInUse where date = '" + date + "'";
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        int temp = reader.GetInt32(0);
+                        IDLoadEquipInUse.Add(temp);
+                    }
+                }
+                con.Close();
+                return IDLoadEquipInUse;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return IDLoadEquipInUse;
+            }
+        }
+        #endregion
+
         #endregion
     }
 }

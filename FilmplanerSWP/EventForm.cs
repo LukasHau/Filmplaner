@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -29,24 +30,26 @@ namespace FilmplanerSWP
 
             txtb_date.Text = BenutzerKontrolleTage.static_day + "/" + Kalender.static_month + "/" + Kalender.static_year;
 
+            //load all objects of Staff in the Checklist Box
             foreach (int x in SQLConnection.SelectStaffID())
             {
                 x.ToString();
                 SQLConnection.SelectStaffSurname(x);
                 SQLConnection.SelectStaffName(x);
 
-                cLBWork.Items.Add(SQLConnection.SurnameSelectStaff + " " + SQLConnection.NameSelectStaff);
+                cLBWork.Items.Add(x + ". " + SQLConnection.SurnameSelectStaff + " " + SQLConnection.NameSelectStaff);
             }
 
+            //load all objects of Equipment in the Checklist Box
             foreach (int x in SQLConnection.SelectEquipmentID())
             {
                 x.ToString();
                 SQLConnection.SelectEquipmentName(x);
                 SQLConnection.SelectEquipmentDescription(x);
 
-                cLBEquip.Items.Add(x + " " + SQLConnection.DescriptionEquipment + " -- " + SQLConnection.NameSelectEquipment);
+                cLBEquip.Items.Add(x + ". " + SQLConnection.DescriptionEquipment + " -- " + SQLConnection.NameSelectEquipment);
             }
-
+           
             UpdateForm();
         }
 
@@ -61,13 +64,35 @@ namespace FilmplanerSWP
                 SQLConnection.ChangeEvent(txtb_date.Text, txtb_location.Text, txtb_time.Text, txtb_event.Text, txtb_client.Text, txtb_contact_person.Text, txtb_description.Text);
             }
 
-            //foreach (object control in )
-            //{
-            //    if (control.GetType() == typeof(CheckBox))
-            //    {
-            //        MessageBox.Show("true " + t.Name);
-            //    }
-            //}
+            if (cLBWork.CheckedItems.Count != 0)
+            {
+                // If so, loop through all checked items and print results.
+                int ID;
+                for (int x = 0; x < cLBWork.CheckedItems.Count; x++)
+                {
+                    //cuts the string after the point, to get the ID of the subject
+                    ID = Convert.ToInt32(cLBWork.CheckedItems[x].ToString().Substring(0, cLBWork.CheckedItems[x].ToString().IndexOf(".")));
+
+                    SQLConnection.AddStaffInUse(ID, txtb_date.Text);
+
+                }
+
+            }
+
+            if (cLBEquip.CheckedItems.Count != 0)
+            {
+                // If so, loop through all checked items and print results.  
+                int ID;
+                for (int x = 0; x < cLBEquip.CheckedItems.Count; x++)
+                {
+                    //cuts the string after the point, to get the ID of the subject
+                    ID = Convert.ToInt32(cLBEquip.CheckedItems[x].ToString().Substring(0, cLBEquip.CheckedItems[x].ToString().IndexOf(".")));
+
+                    SQLConnection.AddEquipInUse(ID, txtb_date.Text);
+
+                }
+
+            }
 
             UpdateForm();
         }
@@ -87,6 +112,21 @@ namespace FilmplanerSWP
             txtb_client.Text = SQLConnection.EventClient;
             txtb_contact_person.Text = SQLConnection.EventContactPerson;
             txtb_description.Text = SQLConnection.EventDescription;
+
+            foreach (int x in SQLConnection.LoadStaffInUse(txtb_date.Text))
+            {
+                x.ToString();
+            }
+
+            foreach (int x in SQLConnection.LoadEquipInUse(txtb_date.Text))
+            {
+                x.ToString();
+            }
+        }
+
+        private void cLBWork_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
