@@ -703,6 +703,23 @@ namespace FilmplanerSWP
         }
 
         #region StaffInUse
+        public static void DeleteStaffInUse(string date)
+        {
+            try
+            {
+                con.Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = ("DELETE FROM swp4_staffInUse WHERE date = '" + date + "';");
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                con.Close();
+                MessageBox.Show(e.ToString());
+            }
+        }
+
         public static void AddStaffInUse(int staffID, string date)
         {
             try
@@ -751,6 +768,22 @@ namespace FilmplanerSWP
         #endregion
 
         #region EquipmentInUse
+        public static void DeleteEquipInUse(string date)
+        {
+            try
+            {
+                con.Open();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = ("DELETE FROM swp4_equipInUse WHERE date = '" + date + "';");
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                con.Close();
+                MessageBox.Show(e.ToString());
+            }
+        }
         public static void AddEquipInUse(int equipID, string date)
         {
             try

@@ -64,6 +64,9 @@ namespace FilmplanerSWP
                 SQLConnection.ChangeEvent(txtb_date.Text, txtb_location.Text, txtb_time.Text, txtb_event.Text, txtb_client.Text, txtb_contact_person.Text, txtb_description.Text);
             }
 
+            SQLConnection.DeleteStaffInUse(txtb_date.Text);
+            SQLConnection.DeleteEquipInUse(txtb_date.Text);
+
             if (cLBWork.CheckedItems.Count != 0)
             {
                 // If so, loop through all checked items and print results.
@@ -116,6 +119,7 @@ namespace FilmplanerSWP
             foreach (int x in SQLConnection.LoadStaffInUse(txtb_date.Text))
             {
                 x.ToString();
+                //cLBWork.SetItemChecked(... , true);
             }
 
             foreach (int x in SQLConnection.LoadEquipInUse(txtb_date.Text))
