@@ -122,6 +122,9 @@ namespace FilmplanerSWP
 
                 cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_staffInUse') CREATE TABLE swp4_staffInUse ([Id] INT IDENTITY(1, 1) NOT NULL, [staffID] INT NULL, [date] VARCHAR(50) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
                 cmd.ExecuteNonQuery();
+
+                cmd.CommandText = ("IF NOT EXISTS (SELECT * FROM sys.tables WHERE [name] = 'swp4_equipInUse') CREATE TABLE swp4_squipInUse ([Id] INT IDENTITY(1, 1) NOT NULL, [equipID] INT NULL, [date] VARCHAR(50) NULL, PRIMARY KEY CLUSTERED([Id] ASC))");
+                cmd.ExecuteNonQuery();
                 con.Close();
             }
             catch (Exception e)
@@ -830,7 +833,6 @@ namespace FilmplanerSWP
             }
         }
         #endregion
-
         #endregion
     }
 }

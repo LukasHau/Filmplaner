@@ -79,7 +79,6 @@ namespace FilmplanerSWP
                     SQLConnection.AddStaffInUse(ID, txtb_date.Text);
 
                 }
-
             }
 
             if (cLBEquip.CheckedItems.Count != 0)
@@ -94,7 +93,6 @@ namespace FilmplanerSWP
                     SQLConnection.AddEquipInUse(ID, txtb_date.Text);
 
                 }
-
             }
 
             UpdateForm();
