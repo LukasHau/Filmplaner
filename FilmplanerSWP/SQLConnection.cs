@@ -601,6 +601,7 @@ namespace FilmplanerSWP
         {
             con.Open();
             cmd.CommandText = ("SELECT Id FROM swp4_event where date = '" + date + "';");
+            
             string temp = Convert.ToString(cmd.ExecuteScalar());
             con.Close();
 

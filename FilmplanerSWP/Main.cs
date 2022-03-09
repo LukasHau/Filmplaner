@@ -25,8 +25,8 @@ namespace FilmplanerSWP
         private void Main_Load(object sender, EventArgs e)
         {
            
-            btn_calender.FlatStyle = FlatStyle.Flat;
-            btn_calender.FlatAppearance.BorderColor = Color.CornflowerBlue;
+            btn_calender.FlatStyle = FlatStyle.Flat;    //the buttons are converted into flatstyle buttons
+            btn_calender.FlatAppearance.BorderColor = Color.CornflowerBlue; //the now converted button is getting a certain border colour
 
             btn_equipment.FlatStyle = FlatStyle.Flat;
             btn_equipment.FlatAppearance.BorderColor = Color.CornflowerBlue;
@@ -37,7 +37,7 @@ namespace FilmplanerSWP
             btn_administration.FlatStyle = FlatStyle.Flat;
             btn_administration.FlatAppearance.BorderColor = Color.CornflowerBlue;
 
-            rolegetter();
+            rolegetter(); //jumps into the class 
 
         }
 
@@ -78,21 +78,21 @@ namespace FilmplanerSWP
             }
         }
 
-        private void btn_calender_Click(object sender, EventArgs e)
+        private void btn_calender_Click(object sender, EventArgs e) //opens the calendar form and hides the current form
         {
-            Kalender temp = new Kalender();
+            Kalender temp = new Kalender(); 
             this.Hide();
             temp.Show();
         }
 
-        private void btn_equipment_Click(object sender, EventArgs e)
+        private void btn_equipment_Click(object sender, EventArgs e) //opens the equipment form and hides the current form
         {
             Equipment temp = new Equipment();
             this.Hide();
             temp.Show();
         }
 
-        private void btn_employee_Click(object sender, EventArgs e)
+        private void btn_employee_Click(object sender, EventArgs e) //opens the employee form and hides the current form
         {
             Mitarbeiter temp = new Mitarbeiter();
             this.Hide();

@@ -49,9 +49,9 @@ namespace FilmplanerSWP
             ClearEquipment();
         }
 
-        private void btn_save_Click(object sender, EventArgs e)
+        private void btn_save_Click(object sender, EventArgs e)//saves the current changes
         {
-            //saves the current changes
+            
             SQLConnection.ChangeEqipment(tB_name.Text, cB_description.Text, Convert.ToDecimal(tB_price.Text), dTP_installation.Value.Date, cB_state.Text, Convert.ToInt32(tB_warrnaty.Text), rTB_info.Text, ID);
 
             SQLConnection.LoadEqipment(ID);
@@ -65,7 +65,7 @@ namespace FilmplanerSWP
             rTB_info.Text = SQLConnection.EqipmentInfo;
         }
 
-        private void btn_back_Click(object sender, EventArgs e)
+        private void btn_back_Click(object sender, EventArgs e) //goes back to the main form
         {
             ClearEquipment();
             Main temp = new Main();
@@ -73,7 +73,7 @@ namespace FilmplanerSWP
             temp.Show();
         }
 
-        private void cB_addEquipment_CheckedChanged(object sender, EventArgs e)
+        private void cB_addEquipment_CheckedChanged(object sender, EventArgs e) //enables/disables certain buttons and fields depending on the checked state
         {
             //endable and disable buttons
             btn_add.Enabled = true;
@@ -105,7 +105,7 @@ namespace FilmplanerSWP
             }
         }
 
-        private void btn_add_Click(object sender, EventArgs e)
+        private void btn_add_Click(object sender, EventArgs e) //adds another equipment to the list
         {
             //adds a equipment
             SQLConnection.errormessage = true;
@@ -126,7 +126,7 @@ namespace FilmplanerSWP
             }
         }
 
-        public void ClearEquipment()
+        public void ClearEquipment() //clears the equipment 
         {
             tB_name.Clear();
             cB_description.SelectedIndex = -1;
@@ -162,7 +162,7 @@ namespace FilmplanerSWP
 
         }
 
-        private void btn_delete_Click(object sender, EventArgs e)
+        private void btn_delete_Click(object sender, EventArgs e) //deletes an equipment
         {
             //delete a equipment
             ID = Convert.ToInt32(cB_indexEquipment.SelectedItem.ToString().Substring(0, 2));

@@ -21,8 +21,8 @@ namespace FilmplanerSWP
         private void Mitarbeiter_Load(object sender, EventArgs e)
         {
 
-            btn_save.FlatStyle = FlatStyle.Flat;
-            btn_save.FlatAppearance.BorderColor = Color.CornflowerBlue;
+            btn_save.FlatStyle = FlatStyle.Flat; //sets the button to a flat button
+            btn_save.FlatAppearance.BorderColor = Color.CornflowerBlue; //gives the now flat button a different border colour
 
             btn_load.FlatStyle = FlatStyle.Flat;
             btn_load.FlatAppearance.BorderColor = Color.CornflowerBlue;
@@ -43,7 +43,7 @@ namespace FilmplanerSWP
             ClearStaff();
         }
 
-        public void ClearStaff()
+        public void ClearStaff() //clears all the staff
         {
             tB_name.Clear();
             tB_surname.Clear();
@@ -63,7 +63,7 @@ namespace FilmplanerSWP
             }
         }
 
-        private void btn_save_Click(object sender, EventArgs e)
+        private void btn_save_Click(object sender, EventArgs e) //saves the newly made changes 
         {
             //saves the current changes
             SQLConnection.ChangeStaff(tB_name.Text, tB_surname.Text, dTP_age.Value, tB_adress.Text, dTP_StartingDate.Value, cB_job.Text, rTB_info.Text, ID);
@@ -79,7 +79,7 @@ namespace FilmplanerSWP
             rTB_info.Text = SQLConnection.StaffInfo;
         }
 
-        private void btn_add_Click(object sender, EventArgs e)
+        private void btn_add_Click(object sender, EventArgs e) //adds another new staff member or entry into the database
         {
             //adds a staff member
             SQLConnection.errormessage = true;
@@ -99,7 +99,7 @@ namespace FilmplanerSWP
             }
         }
 
-        private void btn_back_Click(object sender, EventArgs e)
+        private void btn_back_Click(object sender, EventArgs e) //gets you back to the main form
         {
             ClearStaff();
             Main temp = new Main();
@@ -107,7 +107,7 @@ namespace FilmplanerSWP
             temp.Show();
         }
 
-        private void cB_addWorker_CheckedChanged(object sender, EventArgs e)
+        private void cB_addWorker_CheckedChanged(object sender, EventArgs e) //enables/disables certain buttons and fields depending on the checked state
         {
             //endable and disable buttons
             btn_add.Enabled = true;
@@ -139,7 +139,7 @@ namespace FilmplanerSWP
             }
         }
 
-        private void btn_load_Click(object sender, EventArgs e)
+        private void btn_load_Click(object sender, EventArgs e) //loads the selected staff member into the form
         {
             //for the dropdown, inserts all objects to the list
             ID = Convert.ToInt32(cB_indexStaff.SelectedItem.ToString().Substring(0, 2));
@@ -154,7 +154,7 @@ namespace FilmplanerSWP
             rTB_info.Text = SQLConnection.StaffInfo;
         }
 
-        private void btn_delete_Click(object sender, EventArgs e)
+        private void btn_delete_Click(object sender, EventArgs e) //deletes a staff member
         {
             //delete a staff member
             ID = Convert.ToInt32(cB_indexStaff.SelectedItem.ToString().Substring(0, 2));

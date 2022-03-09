@@ -65,7 +65,7 @@ namespace FilmplanerSWP
             }
         }
 
-        private void pB_addUser_Click(object sender, EventArgs e)
+        private void pB_addUser_Click(object sender, EventArgs e) //if the user ain't already existing, the programm creates a new one and puts it into the database
         {
             string username = tB_login_name.Text;
             string password = tB_login_password.Text;
@@ -73,7 +73,7 @@ namespace FilmplanerSWP
             SQLConnection.create_user(username, password);
         }
 
-        private void tB_login_password_KeyDown(object sender, KeyEventArgs e)
+        private void tB_login_password_KeyDown(object sender, KeyEventArgs e) //If the cursour is inside the password box and the user presses the 'Enter' key it automatically checks all the accesability and logs the user in
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -102,7 +102,7 @@ namespace FilmplanerSWP
             }
         }
 
-        private void tB_login_name_KeyDown(object sender, KeyEventArgs e)
+        private void tB_login_name_KeyDown(object sender, KeyEventArgs e) //If the cursour is inside the name box and the user presses the 'Enter' key it automatically checks all the accesability and logs the user in
         {
             if (e.KeyCode == Keys.Enter)
             {

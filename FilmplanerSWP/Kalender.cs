@@ -174,13 +174,13 @@ namespace FilmplanerSWP
             int dayoftheweek = Convert.ToInt32(startofthemonth.DayOfWeek.ToString("d")) + 1;
 
 
-            for (int i = 1; i < dayoftheweek; i++)
+            for (int i = 1; i < dayoftheweek; i++) //puts the day of the week one ahead if true
             {
                 BenutzerKontrolleLeer ucblank = new BenutzerKontrolleLeer();
                 flp_daycontainer.Controls.Add(ucblank);
             }
 
-            for (int i = 1; i <= days; i++)
+            for (int i = 1; i <= days; i++) //puts the day one ahead if true
             {
                 BenutzerKontrolleTage ucdays = new BenutzerKontrolleTage();
                 ucdays.days(i);
@@ -222,18 +222,18 @@ namespace FilmplanerSWP
             int dayoftheweek = Convert.ToInt32(startofthemonth.DayOfWeek.ToString("d")) + 1;
 
 
-            for (int i = 1; i < dayoftheweek; i++)
+            for (int i = 1; i < dayoftheweek; i++) //puts the day of the week one ahead if true
             {
                 BenutzerKontrolleLeer ucblank = new BenutzerKontrolleLeer();
                 flp_daycontainer.Controls.Add(ucblank);
             }
 
-            for (int i = 1; i <= days; i++)
+            for (int i = 1; i <= days; i++) //puts days one ahead if true
             {
                 BenutzerKontrolleTage ucdays = new BenutzerKontrolleTage();
                 
                 ucdays.days(i);
-                if (i == now.Day && month == now.Month && year == now.Year)
+                if (i == now.Day && month == now.Month && year == now.Year) 
                 {
 
                     ucdays.BackColor = Color.FromArgb(25, Color.Green);

@@ -39,10 +39,10 @@ namespace FilmplanerSWP
             // 
             this.lbl_days.AutoSize = true;
             this.lbl_days.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_days.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_days.Location = new System.Drawing.Point(42, 33);
+            this.lbl_days.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_days.Location = new System.Drawing.Point(39, 30);
             this.lbl_days.Name = "lbl_days";
-            this.lbl_days.Size = new System.Drawing.Size(23, 19);
+            this.lbl_days.Size = new System.Drawing.Size(30, 25);
             this.lbl_days.TabIndex = 0;
             this.lbl_days.Text = "00";
             this.lbl_days.Click += new System.EventHandler(this.lbl_days_Click);
