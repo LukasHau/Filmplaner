@@ -14,6 +14,8 @@ namespace FilmplanerSWP
 {
     public partial class EventForm : Form
     {
+        private int ID_equip;
+        private int ID_staff;
 
         public EventForm()
         {
@@ -55,6 +57,7 @@ namespace FilmplanerSWP
 
         private void btn_save_Click(object sender, EventArgs e)
         {
+            //creates an Event if there is no existing one or changes it
             if(SQLConnection.CheckEvent(txtb_date.Text) == true)
             {
                 SQLConnection.CreateEvent(txtb_date.Text, txtb_location.Text, txtb_time.Text, txtb_event.Text, txtb_client.Text, txtb_contact_person.Text, txtb_description.Text);
@@ -64,33 +67,34 @@ namespace FilmplanerSWP
                 SQLConnection.ChangeEvent(txtb_date.Text, txtb_location.Text, txtb_time.Text, txtb_event.Text, txtb_client.Text, txtb_contact_person.Text, txtb_description.Text);
             }
 
+            //delets all items with the same date
             SQLConnection.DeleteStaffInUse(txtb_date.Text);
             SQLConnection.DeleteEquipInUse(txtb_date.Text);
 
             if (cLBWork.CheckedItems.Count != 0)
             {
                 // If so, loop through all checked items and print results.
-                int ID;
+                
                 for (int x = 0; x < cLBWork.CheckedItems.Count; x++)
                 {
                     //cuts the string after the point, to get the ID of the subject
-                    ID = Convert.ToInt32(cLBWork.CheckedItems[x].ToString().Substring(0, cLBWork.CheckedItems[x].ToString().IndexOf(".")));
+                    ID_staff = Convert.ToInt32(cLBWork.CheckedItems[x].ToString().Substring(0, cLBWork.CheckedItems[x].ToString().IndexOf(".")));
 
-                    SQLConnection.AddStaffInUse(ID, txtb_date.Text);
+                    SQLConnection.AddStaffInUse(ID_staff, txtb_date.Text);
 
                 }
             }
-
+            
             if (cLBEquip.CheckedItems.Count != 0)
             {
                 // If so, loop through all checked items and print results.  
-                int ID;
+                
                 for (int x = 0; x < cLBEquip.CheckedItems.Count; x++)
                 {
                     //cuts the string after the point, to get the ID of the subject
-                    ID = Convert.ToInt32(cLBEquip.CheckedItems[x].ToString().Substring(0, cLBEquip.CheckedItems[x].ToString().IndexOf(".")));
+                    ID_equip = Convert.ToInt32(cLBEquip.CheckedItems[x].ToString().Substring(0, cLBEquip.CheckedItems[x].ToString().IndexOf(".")));
 
-                    SQLConnection.AddEquipInUse(ID, txtb_date.Text);
+                    SQLConnection.AddEquipInUse(ID_equip, txtb_date.Text);
 
                 }
             }
@@ -116,13 +120,25 @@ namespace FilmplanerSWP
 
             foreach (int x in SQLConnection.LoadStaffInUse(txtb_date.Text))
             {
-                x.ToString();
-                //cLBWork.SetItemChecked(... , true);
+                for (int i = 0; i < cLBWork.Items.Count; i++)
+                {
+                    if (cLBWork.Items[i].ToString().Contains(x.ToString()))
+                    {
+                        cLBWork.SetItemChecked(i, true);
+                    }
+                }
             }
+            
 
             foreach (int x in SQLConnection.LoadEquipInUse(txtb_date.Text))
             {
-                x.ToString();
+                for (int i = 0; i < cLBEquip.Items.Count; i++)
+                {
+                    if (cLBEquip.Items[i].ToString().Contains(x.ToString()))
+                    {
+                        cLBEquip.SetItemChecked(i, true);
+                    }
+                }
             }
         }
 
