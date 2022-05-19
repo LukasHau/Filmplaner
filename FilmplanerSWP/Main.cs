@@ -42,24 +42,25 @@ namespace FilmplanerSWP
             //endables and disables the buttons for individual users
             try
             {
-                if (Login.userrole == "none")
+                if (Login.userrole == "admin")
                 {
-                    btn_administration.Enabled = false;
-                    btn_employee.Enabled = false;
-                    btn_equipment.Enabled = false;
-                    btn_calender.Enabled = false;
+                    btn_administration.Enabled = true;
+                    btn_employee.Enabled = true;
+                    btn_equipment.Enabled = true;
+                    btn_calender.Enabled = true;
                 }
                 else if (Login.userrole == "user")
                 {
                     btn_administration.Enabled = false;
                     btn_employee.Enabled = false;
                     btn_equipment.Enabled = false;
+                    btn_calender.Enabled = true;
                 }
                 else
                 {
-                    btn_administration.Enabled = true;
-                    btn_employee.Enabled = true;
-                    btn_equipment.Enabled = true;
+                    btn_administration.Enabled = false;
+                    btn_employee.Enabled = false;
+                    btn_equipment.Enabled = false;
                     btn_calender.Enabled = true;
                 }
             }
@@ -71,7 +72,9 @@ namespace FilmplanerSWP
 
         private void btn_administration_Click(object sender, EventArgs e)
         {
-
+            Verwaltung temp = new Verwaltung();
+            this.Hide();
+            temp.Show();
         }
 
         private void btn_calender_Click(object sender, EventArgs e)

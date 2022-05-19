@@ -203,7 +203,7 @@ namespace FilmplanerSWP
 
                         con.Open();
                         cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = ("INSERT INTO swp4_login (username, password, role) VALUES ('" + username + "', '" + hashedpw + "', 'admin');");
+                        cmd.CommandText = ("INSERT INTO swp4_login (username, password, role) VALUES ('" + username + "', '" + hashedpw + "', 'guest');");
                         cmd.ExecuteNonQuery();
                         con.Close();
 
@@ -220,6 +220,44 @@ namespace FilmplanerSWP
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
+            }
+        }
+
+        #endregion
+
+        #region DataGridView
+
+        public static DataTable LoadDataInDG()
+        {
+            //clears the DataTable
+            dt.Clear();
+            //shows the data in the DataGrid
+            try
+            {
+                cmd = new SqlCommand("SELECT * FROM swp4_login", con);
+                adp.SelectCommand = cmd;
+                adp.Fill(dt);
+                return dt;
+            }
+            catch
+            {
+                MessageBox.Show("Ein Fehler ist aufgetreten!");
+                return dt;
+            }
+        }
+
+        public static void SaveDG()
+        {
+            //saves the DataGrid in Verwaltung
+            try
+            {
+                adp.UpdateCommand = CommandBuilder.GetUpdateCommand();
+                adp.Update(dt);
+                MessageBox.Show("Gespeichert!");
+            }
+            catch
+            {
+                MessageBox.Show("Ein Fehler ist aufgetreten!");
             }
         }
 

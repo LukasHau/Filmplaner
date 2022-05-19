@@ -255,6 +255,7 @@ namespace FilmplanerSWP
             this.cLBEquip.Name = "cLBEquip";
             this.cLBEquip.Size = new System.Drawing.Size(255, 345);
             this.cLBEquip.TabIndex = 20;
+            this.cLBEquip.SelectedIndexChanged += new System.EventHandler(this.cLBEquip_SelectedIndexChanged);
             // 
             // cLBWork
             // 

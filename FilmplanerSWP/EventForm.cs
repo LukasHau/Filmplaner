@@ -24,6 +24,40 @@ namespace FilmplanerSWP
 
         public void EventForm_Load(object sender, EventArgs e)
         {
+            try
+            {
+                if (Login.userrole == "admin")
+                {
+                    btn_save.Enabled = true;
+                    cLBEquip.Enabled = true;
+                    cLBWork.Enabled = true;
+
+                }
+                else if (Login.userrole == "user")
+                {
+                    btn_save.Enabled = true;
+                    cLBEquip.Enabled = true;
+                    cLBWork.Enabled = true;
+                }
+                else
+                {
+                    btn_save.Enabled = false;
+                    cLBEquip.Enabled = false;
+                    cLBWork.Enabled = false;
+                    txtb_client.Enabled = false;
+                    txtb_contact_person.Enabled = false;
+                    txtb_description.Enabled = false;
+                    txtb_event.Enabled = false;
+                    txtb_location.Enabled = false;
+                    txtb_time.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
             btn_back.FlatStyle = FlatStyle.Flat;
             btn_back.FlatAppearance.BorderColor = Color.CornflowerBlue;
 
@@ -118,23 +152,28 @@ namespace FilmplanerSWP
             txtb_contact_person.Text = SQLConnection.EventContactPerson;
             txtb_description.Text = SQLConnection.EventDescription;
 
+            //checks if the database contains a data with the right date
             foreach (int x in SQLConnection.LoadStaffInUse(txtb_date.Text))
             {
+                //for every item in the CheckedListBox
                 for (int i = 0; i < cLBWork.Items.Count; i++)
                 {
-                    if (cLBWork.Items[i].ToString().Contains(x.ToString()))
+                    //checks if the value of the item before the '.' = the Index, is the same, if so it checks the value
+                    if (cLBWork.Items[i].ToString().Substring(0, cLBWork.Items[i].ToString().IndexOf(".")).Contains(x.ToString()))
                     {
                         cLBWork.SetItemChecked(i, true);
                     }
                 }
             }
-            
 
+            //checks if the database contains a data with the right date
             foreach (int x in SQLConnection.LoadEquipInUse(txtb_date.Text))
             {
+                //for every item in the CheckedListBox
                 for (int i = 0; i < cLBEquip.Items.Count; i++)
                 {
-                    if (cLBEquip.Items[i].ToString().Contains(x.ToString()))
+                    //checks if the value of the item before the '.' = the Index, is the same, if so it checks the value
+                    if (cLBEquip.Items[i].ToString().Substring(0, cLBEquip.Items[i].ToString().IndexOf(".")).Contains(x.ToString()))
                     {
                         cLBEquip.SetItemChecked(i, true);
                     }
@@ -143,6 +182,11 @@ namespace FilmplanerSWP
         }
 
         private void cLBWork_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cLBEquip_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
