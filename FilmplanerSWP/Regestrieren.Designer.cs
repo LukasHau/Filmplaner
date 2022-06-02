@@ -43,7 +43,7 @@ namespace FilmplanerSWP
             // 
             this.btn_back.Location = new System.Drawing.Point(12, 237);
             this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(93, 34);
+            this.btn_back.Size = new System.Drawing.Size(90, 34);
             this.btn_back.TabIndex = 0;
             this.btn_back.Text = "Zurück";
             this.btn_back.UseVisualStyleBackColor = true;
