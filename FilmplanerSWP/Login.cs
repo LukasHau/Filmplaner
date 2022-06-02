@@ -67,10 +67,10 @@ namespace FilmplanerSWP
 
         private void pB_addUser_Click(object sender, EventArgs e)
         {
-            string username = tB_login_name.Text;
-            string password = tB_login_password.Text;
+            Regestrieren temp = new Regestrieren();
+            //this.Hide();
 
-            SQLConnection.create_user(username, password);
+            temp.Show();
         }
 
         private void tB_login_password_KeyDown(object sender, KeyEventArgs e)
@@ -132,6 +132,11 @@ namespace FilmplanerSWP
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tB_login_password_TextChanged(object sender, EventArgs e)
         {
 
         }

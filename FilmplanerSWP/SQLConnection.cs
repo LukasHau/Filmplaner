@@ -210,10 +210,12 @@ namespace FilmplanerSWP
 
 
                         MessageBox.Show("Benutzer wurde erfolgreich erstellt!");
+                        errormessage = false;
                     }
                     else
                     {
                         MessageBox.Show("Der Benutzername wird bereits verwendet!");
+                        errormessage = true;
                     }
                 }
             }
