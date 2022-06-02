@@ -45,7 +45,7 @@ namespace FilmplanerSWP
         private void Login_Load(object sender, EventArgs e)
         {
             SQLConnection.TryConnectTODB();
-            //hides the Password
+            //hides the Passworduj
             tB_login_password.PasswordChar = '*';
 
            
@@ -133,7 +133,7 @@ namespace FilmplanerSWP
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
         private void tB_login_password_TextChanged(object sender, EventArgs e)
