@@ -17,6 +17,7 @@ namespace FilmplanerSWP
             InitializeComponent();
         }
 
+        //Loads Data-Source-Grid and wirtes the Content from the Login table into it.
         private void Verwaltung_Load(object sender, EventArgs e)
         {
             dG_table.DataSource = SQLConnection.LoadDataInDG();

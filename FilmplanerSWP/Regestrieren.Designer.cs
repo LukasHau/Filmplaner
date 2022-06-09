@@ -29,6 +29,7 @@ namespace FilmplanerSWP
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Regestrieren));
             this.btn_back = new System.Windows.Forms.Button();
             this.btn_register = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +42,7 @@ namespace FilmplanerSWP
             // 
             // btn_back
             // 
+            this.btn_back.BackgroundImage = global::FilmplanerSWP.Properties.Resources.Button_Hintergrund_nur_weiß;
             this.btn_back.Location = new System.Drawing.Point(12, 237);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(90, 34);
@@ -51,6 +53,7 @@ namespace FilmplanerSWP
             // 
             // btn_register
             // 
+            this.btn_register.BackgroundImage = global::FilmplanerSWP.Properties.Resources.Button_Hintergrund_nur_weiß;
             this.btn_register.Location = new System.Drawing.Point(307, 237);
             this.btn_register.Name = "btn_register";
             this.btn_register.Size = new System.Drawing.Size(93, 34);
@@ -62,30 +65,30 @@ namespace FilmplanerSWP
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 20);
+            this.label1.Size = new System.Drawing.Size(118, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Benutzername:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 95);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 20);
+            this.label2.Size = new System.Drawing.Size(78, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Passwort:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 170);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(195, 20);
+            this.label3.Size = new System.Drawing.Size(167, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Passwort wiederholen:";
             // 
@@ -116,6 +119,7 @@ namespace FilmplanerSWP
             // Regestrieren
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(412, 280);
             this.Controls.Add(this.tB_password2);
             this.Controls.Add(this.tB_password);
@@ -125,6 +129,7 @@ namespace FilmplanerSWP
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_register);
             this.Controls.Add(this.btn_back);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Regestrieren";
