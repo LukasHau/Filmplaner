@@ -115,9 +115,9 @@ namespace FilmplanerSWP
                 SQLConnection.FillEquipment(tB_name.Text, cB_description.Text, Convert.ToDecimal(tB_price.Text), dTP_installation.Value.Date, cB_state.Text, Convert.ToInt32(tB_warrnaty.Text), rTB_info.Text);
 
             }
-            catch(Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Bitte füllen Sie alle Felder aus.");
             }
 
             if (SQLConnection.errormessage == false)

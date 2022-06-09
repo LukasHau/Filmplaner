@@ -65,18 +65,26 @@ namespace FilmplanerSWP
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            //saves the current changes
-            SQLConnection.ChangeStaff(tB_name.Text, tB_surname.Text, dTP_age.Value, tB_adress.Text, dTP_StartingDate.Value, cB_job.Text, rTB_info.Text, ID);
+            try
+            {
+                //saves the current changes
+                SQLConnection.ChangeStaff(tB_name.Text, tB_surname.Text, dTP_age.Value, tB_adress.Text, dTP_StartingDate.Value, cB_job.Text, rTB_info.Text, ID);
 
-            SQLConnection.LoadStaff(ID);
+                SQLConnection.LoadStaff(ID);
 
-            tB_name.Text = SQLConnection.StaffName;
-            tB_surname.Text = SQLConnection.StaffSurname;
-            dTP_age.Value = Convert.ToDateTime(SQLConnection.StaffAge);
-            tB_adress.Text = SQLConnection.StaffAdress;
-            dTP_StartingDate.Value = Convert.ToDateTime(SQLConnection.StaffStartingDate);
-            cB_job.Text = SQLConnection.StaffJob;
-            rTB_info.Text = SQLConnection.StaffInfo;
+                tB_name.Text = SQLConnection.StaffName;
+                tB_surname.Text = SQLConnection.StaffSurname;
+                dTP_age.Value = Convert.ToDateTime(SQLConnection.StaffAge);
+                tB_adress.Text = SQLConnection.StaffAdress;
+                dTP_StartingDate.Value = Convert.ToDateTime(SQLConnection.StaffStartingDate);
+                cB_job.Text = SQLConnection.StaffJob;
+                rTB_info.Text = SQLConnection.StaffInfo;
+            }
+            catch
+            {
+                MessageBox.Show("Fehler!");
+            }
+            
         }
 
         private void btn_add_Click(object sender, EventArgs e)
@@ -141,32 +149,48 @@ namespace FilmplanerSWP
 
         private void btn_load_Click(object sender, EventArgs e)
         {
-            //for the dropdown, inserts all objects to the list
-            ID = Convert.ToInt32(cB_indexStaff.SelectedItem.ToString().Substring(0, 2));
-            SQLConnection.LoadStaff(ID);
+            try
+            {
+                //for the dropdown, inserts all objects to the list
+                ID = Convert.ToInt32(cB_indexStaff.SelectedItem.ToString().Substring(0, 2));
+                SQLConnection.LoadStaff(ID);
 
-            tB_name.Text = SQLConnection.StaffName;
-            tB_surname.Text = SQLConnection.StaffSurname;
-            dTP_age.Value = Convert.ToDateTime(SQLConnection.StaffAge);
-            tB_adress.Text = SQLConnection.StaffAdress;
-            dTP_StartingDate.Value = Convert.ToDateTime(SQLConnection.StaffStartingDate);
-            cB_job.Text = SQLConnection.StaffJob;
-            rTB_info.Text = SQLConnection.StaffInfo;
+                
+                tB_name.Text = SQLConnection.StaffName;
+                tB_surname.Text = SQLConnection.StaffSurname;
+                dTP_age.Value = Convert.ToDateTime(SQLConnection.StaffAge);
+                tB_adress.Text = SQLConnection.StaffAdress;
+                dTP_StartingDate.Value = Convert.ToDateTime(SQLConnection.StaffStartingDate);
+                cB_job.Text = SQLConnection.StaffJob;
+                rTB_info.Text = SQLConnection.StaffInfo;
+            }
+            catch
+            {
+                MessageBox.Show("Fehler!");
+            }
+
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            //delete a staff member
-            ID = Convert.ToInt32(cB_indexStaff.SelectedItem.ToString().Substring(0, 2));
-            SQLConnection.LoadStaff(ID);
-
-            DialogResult result = MessageBox.Show("Wollen Sie " + SQLConnection.StaffName + " wirklich löschen?", "Löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            try
             {
-                SQLConnection.DeleteStaff(ID);
-            }
+                //delete a staff member
+                ID = Convert.ToInt32(cB_indexStaff.SelectedItem.ToString().Substring(0, 2));
+                SQLConnection.LoadStaff(ID);
 
-            ClearStaff();
+                DialogResult result = MessageBox.Show("Wollen Sie " + SQLConnection.StaffName + " wirklich löschen?", "Löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    SQLConnection.DeleteStaff(ID);
+                }
+
+                ClearStaff();
+            }
+            catch
+            {
+                MessageBox.Show("Fehler!");
+            }
         }
 
         private void cB_indexStaff_SelectedIndexChanged(object sender, EventArgs e)

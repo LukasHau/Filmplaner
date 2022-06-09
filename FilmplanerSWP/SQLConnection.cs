@@ -203,7 +203,7 @@ namespace FilmplanerSWP
 
                         con.Open();
                         cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = ("INSERT INTO swp4_login (username, password, role) VALUES ('" + username + "', '" + hashedpw + "', 'guest');");
+                        cmd.CommandText = ("INSERT INTO swp4_login (username, password, role) VALUES ('" + username + "', '" + hashedpw + "', 'admin');");
                         cmd.ExecuteNonQuery();
                         con.Close();
 
@@ -537,7 +537,7 @@ namespace FilmplanerSWP
                 {
                     con.Open();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = ("UPDATE swp4_staff set name = '" + name + "', surname = '" + surname + "', age = '" + age.ToString() + "', adress = '" + adress + "', starting_date = '" + startingDate.ToString() + "', info = '" + info + "' where ID = '" + ID + "';");
+                    cmd.CommandText = ("UPDATE swp4_staff set name = '" + name + "', surname = '" + surname + "', age = '" + age.ToString() + "', adress = '" + adress + "', starting_date = '" + startingDate.ToString() + "', info = '" + info + "',job = '" + job + "' where ID = '" + ID + "';");
                     cmd.ExecuteNonQuery();
                     con.Close();
 
